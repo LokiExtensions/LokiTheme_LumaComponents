@@ -5,5 +5,9 @@
             name="Loki_Theme::removeLegacyBindings"
             instance="Loki\Theme\Observer\RemoveLegacyHtmlBindings"
         />
+        <observer
+            name="Loki_Theme::addAlpineData"
+            instance="Loki\Theme\Observer\AddAlpineData"
+        />
     </event>
 </config>
