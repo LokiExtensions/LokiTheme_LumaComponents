@@ -11,18 +11,8 @@ class RemoveLegacyHtmlBindings implements ObserverInterface
 {
     public function __construct(
         private readonly DesignInterface $design,
-        private array $themes = [
-            'frontend/Loki/luma',
-            'frontend/Loki/base',
-        ],
-        private array $patterns = [
-            'x-magento-init' => '/<script\b[^>]*type=(["\'])text\/x-magento-init\1[^>]*>[\s\S]*?<\/script>/i',
-            'require.config' => '/<script\b[^>]*>[\s\S]*?require\.config\([\s\S]*?<\/script>/i',
-            'require' => '/<script\b[^>]*>[\s\S]*?require\([\s\S]*?<\/script>/i',
-            'data-bind' => '/\s*data-bind\s*=\s*"[^"]*"/i',
-            'data-mage-init' => '/\s*data-mage-init\s*=\s*\'[^\']*\'/i',
-            'knockout-comments' => '/<!--\s*\/?ko[\s\S]*?-->/i',
-        ],
+        private array $themes = [],
+        private array $patterns = [],
     ) {
     }
 

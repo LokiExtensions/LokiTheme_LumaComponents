@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Loki\Theme\Observer\RemoveLegacyHtmlBindings">
+        <arguments>
+            <argument name="themes" xsi:type="array">
+                <item name="Loki/luma" xsi:type="string">frontend/Loki/luma</item>
+                <item name="Loki/base" xsi:type="string">frontend/Loki/base</item>
+            </argument>
+            <argument name="patterns" xsi:type="array">
+                <item name="x-magento-init" xsi:type="string"><![CDATA[/<script\b[^>]*type=(["\'])text\/x-magento-init\1[^>]*>[\s\S]*?<\/script>/i]]></item>
+                <item name="require.config" xsi:type="string"><![CDATA[/<script\b[^>]*>[\s\S]*?require\.config\([\s\S]*?<\/script>/i]]></item>
+                <item name="require" xsi:type="string"><![CDATA[/<script\b[^>]*>[\s\S]*?require\([\s\S]*?<\/script>/i]]></item>
+                <item name="data-bind" xsi:type="string"><![CDATA[/\s*data-bind\s*=\s*"[^"]*"/i]]></item>
+                <item name="data-mage-init" xsi:type="string"><![CDATA[/\s*data-mage-init\s*=\s*\'[^\']*\'/i]]></item>
+                <item name="knockout-comments" xsi:type="string"><![CDATA[/<!--\s*\/?ko[\s\S]*?-->/i]]></item>
+            </argument>
+        </arguments>
+    </type>
+</config>
