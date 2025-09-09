@@ -2,23 +2,21 @@
 
 namespace Loki\Theme\Observer;
 
+use Loki\Theme\Config\ThemeConfig;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Theme\Model\Theme\ThemeProvider;
-use Magento\Framework\View\DesignInterface;
 
 class RemoveLegacyHtmlBindings implements ObserverInterface
 {
     public function __construct(
-        private readonly DesignInterface $design,
-        private array $themes = [],
+        private readonly ThemeConfig $themeConfig,
         private array $patterns = [],
     ) {
     }
 
     public function execute(Observer $observer): void
     {
-        if (false === in_array($this->design->getDesignTheme()->getFullPath(), $this->themes)) {
+        if (false === $this->themeConfig->modifyCurrentTheme()) {
             return;
         }
 
