@@ -11,6 +11,8 @@ class AddAlpineData implements ObserverInterface
     public function __construct(
         private $componentDefinitions = [
             'product.info.details' => 'LumaTabs',
+            'form.subscribe' => 'LumaFormSubscribe',
+            'messages' => 'LumaMessages',
         ]
     ) {
     }
@@ -46,6 +48,6 @@ class AddAlpineData implements ObserverInterface
         $blockName = str_replace('.', '-', $block->getNameInLayout());
         $additional .= ' x-title="'.$blockName.'"';
 
-        return preg_replace('/^<([a-z]+) /msi', '<\1 '.$additional, $html);
+        return preg_replace('/^<([a-z]+)/msi', '<\1 '.$additional, $html);
     }
 }
