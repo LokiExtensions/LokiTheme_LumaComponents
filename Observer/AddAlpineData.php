@@ -2,6 +2,7 @@
 
 namespace Loki\Theme\Observer;
 
+use Magento\Framework\App\State as AppState;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\View\Element\AbstractBlock;
@@ -9,10 +10,12 @@ use Magento\Framework\View\Element\AbstractBlock;
 class AddAlpineData implements ObserverInterface
 {
     public function __construct(
-        private $componentDefinitions = [
+        private readonly AppState $appState,
+        private array $componentDefinitions
+        = [
             'product.info.details' => 'LumaTabs',
-            'form.subscribe' => 'LumaFormSubscribe',
-            'messages' => 'LumaMessages',
+            'form.subscribe'       => 'LumaFormSubscribe',
+            'messages'             => 'LumaMessages',
         ]
     ) {
     }
@@ -29,25 +32,36 @@ class AddAlpineData implements ObserverInterface
 
         foreach ($this->componentDefinitions as $blockName => $componentName) {
             if ($blockName === $block->getNameInLayout()) {
-                $html = $this->addComponentNameToHtml($html, $componentName, $block);
+                $html = $this->addComponentNameToHtml(
+                    $html, $componentName, $block
+                );
             }
         }
 
-        $html = "<!-- TEMPLATE: ".$block->getTemplateFile()." -->\n".$html;
-        $html = "<!-- BLOCK: ".$block->getNameInLayout()." -->\n".$html;
+        if ($this->isDeveloperMode()) {
+            $html = "<!-- TEMPLATE: " . $block->getTemplateFile() . " -->\n" . $html;
+            $html = "<!-- BLOCK: " . $block->getNameInLayout() . " -->\n" . $html;
+        }
 
         $transport->setHtml($html);
     }
 
-    private function addComponentNameToHtml(string $html, string $componentName, AbstractBlock $block): string
-    {
+    private function addComponentNameToHtml(string $html, string $componentName,
+        AbstractBlock $block
+    ): string {
         $additional = '';
-        $additional .= ' x-data="'.$componentName.'"';
+        $additional .= ' x-data="' . $componentName . '"';
 
-        // @todo: Only when in dev mode
-        $blockName = str_replace('.', '-', $block->getNameInLayout());
-        $additional .= ' x-title="'.$blockName.'"';
+        if ($this->isDeveloperMode()) {
+            $blockName = str_replace('.', '-', $block->getNameInLayout());
+            $additional .= ' x-title="' . $blockName . '"';
+        }
 
-        return preg_replace('/^<([a-z]+)/msi', '<\1 '.$additional, $html);
+        return preg_replace('/^<([a-z]+)/msi', '<\1 ' . $additional, $html);
+    }
+
+    private function isDeveloperMode(): bool
+    {
+        return $this->appState->getMode() !== AppState::MODE_DEVELOPER;
     }
 }
