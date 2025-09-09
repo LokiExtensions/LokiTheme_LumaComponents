@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <head>
+        <remove src="requirejs/require.js"/>
+        <remove src="mage/requirejs/mixins.js"/>
+        <remove src="requirejs-config.js"/>
+    </head>
+
+    <body>
+        <referenceBlock name="require.js" remove="true"/>
+        <referenceBlock name="requirejs-config" remove="true"/>
+        <referenceBlock name="head.components" remove="true"/>
+        <referenceBlock name="cookie-status-check" remove="true"/>
+    </body>
+</page>
