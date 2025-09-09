@@ -2,6 +2,7 @@
 
 namespace Loki\Theme\Observer;
 
+use Loki\Theme\Config\ThemeConfig;
 use Magento\Framework\App\State as AppState;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -10,6 +11,7 @@ use Magento\Framework\View\Element\AbstractBlock;
 class AddAlpineData implements ObserverInterface
 {
     public function __construct(
+        private readonly ThemeConfig $themeConfig,
         private readonly AppState $appState,
         private array $componentDefinitions = []
     ) {
@@ -17,6 +19,10 @@ class AddAlpineData implements ObserverInterface
 
     public function execute(Observer $observer): void
     {
+        if (false === $this->themeConfig->modifyCurrentTheme()) {
+            return;
+        }
+
         $transport = $observer->getEvent()->getTransport();
         $block = $observer->getEvent()->getBlock();
         $html = (string)$transport->getHtml();
