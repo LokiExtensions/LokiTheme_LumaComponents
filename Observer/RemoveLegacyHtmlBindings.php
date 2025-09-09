@@ -4,10 +4,17 @@ namespace Loki\Theme\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Theme\Model\Theme\ThemeProvider;
+use Magento\Framework\View\DesignInterface;
 
 class RemoveLegacyHtmlBindings implements ObserverInterface
 {
     public function __construct(
+        private readonly DesignInterface $design,
+        private array $themes = [
+            'frontend/Loki/luma',
+            'frontend/Loki/base',
+        ],
         private array $patterns = [
             'x-magento-init' => '/<script\b[^>]*type=(["\'])text\/x-magento-init\1[^>]*>[\s\S]*?<\/script>/i',
             'require.config' => '/<script\b[^>]*>[\s\S]*?require\.config\([\s\S]*?<\/script>/i',
@@ -21,6 +28,10 @@ class RemoveLegacyHtmlBindings implements ObserverInterface
 
     public function execute(Observer $observer): void
     {
+        if (false === in_array($this->design->getDesignTheme()->getFullPath(), $this->themes)) {
+            return;
+        }
+
         $transport = $observer->getEvent()->getTransport();
         $html = $transport->getHtml();
         if (empty($html)) {
