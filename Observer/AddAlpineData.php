@@ -62,6 +62,6 @@ class AddAlpineData implements ObserverInterface
 
     private function isDeveloperMode(): bool
     {
-        return $this->appState->getMode() !== AppState::MODE_DEVELOPER;
+        return $this->appState->getMode() === AppState::MODE_DEVELOPER;
     }
 }
