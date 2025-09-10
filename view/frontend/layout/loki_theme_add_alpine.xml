@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
         <referenceContainer name="before.body.end">
-            <block name="loki.script.alpine-csp" template="Loki_Theme::script/alpine-csp.phtml"/>
+            <block name="loki.alpinejs" template="Loki_Theme::script/alpine-csp.phtml"/>
 
             <block name="loki.script.variables" template="Loki_Theme::script/variables.phtml">
                 <arguments>
