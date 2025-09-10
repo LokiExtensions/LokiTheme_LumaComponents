@@ -1,11 +1,12 @@
 <?php
 declare(strict_types=1);
 
-/** @version 0.0.3 */
 
 use Magento\Framework\View\Element\Template;
 
+/** @version 0.0.2 */
 /** @var Template $block */
+
 $timeout = $block->getTimeout();
 if (false === is_numeric($timeout)) {
     $timeout = 5000;
@@ -65,9 +66,7 @@ if (false === is_numeric($timeout)) {
                 messagesElement.appendChild(messageElement);
 
                 setTimeout(() => {
-                    if (messagesElement.contains(messageElement)) {
-                        messagesElement.removeChild(messageElement);
-                    }
+                    messagesElement.removeChild(messageElement);
                 }, <?= /* @noEscape */ (int)$timeout ?>);
             });
         }
@@ -79,7 +78,7 @@ if (false === is_numeric($timeout)) {
 
             const messages = Alpine.store('LumaLocalStorage').data.messages.messages;
             displayMessages(messages);
-            store.set('messages', null);
+            store.remove('messages');
         })
 
         displayMessages(getMessagesFromCookie());

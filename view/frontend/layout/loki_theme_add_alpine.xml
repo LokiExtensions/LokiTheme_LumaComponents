@@ -16,6 +16,11 @@
             <block name="loki.script.components.newsletter" template="Loki_Theme::script/components/newsletter.phtml"/>
             <block name="loki.script.components.tabs" template="Loki_Theme::script/components/tabs.phtml"/>
             <block name="loki.script.components.messages" template="Loki_Theme::script/components/messages.phtml"/>
+            <block name="loki.script.components.minicart" template="Loki_Theme::script/components/minicart.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="minicart.addons">
+            <block name="loki.minicart-contents" template="Loki_Theme::minicart.phtml"/>
         </referenceContainer>
     </body>
 </page>
