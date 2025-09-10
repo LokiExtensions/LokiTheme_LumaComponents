@@ -16,8 +16,10 @@ use Magento\Framework\View\Element\Template;
             highlightSelected() {
                 var currentUrl = window.location.href.split('?')[0];
                 var item = this.$el.querySelector('a[href="' + currentUrl + '"]');
-                item.parentNode.classList.add('active');
-                item.parentNode.closest('li.level0').classList.add('has-active');
+                if (item && item.parentNode) {
+                    item.parentNode.classList.add('active');
+                    item.parentNode.closest('li.level0').classList.add('has-active');
+                }
             },
             toggleSubmenus() {
                 for (level = 0; level < 3; level++) {
