@@ -6,6 +6,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 10 September 2025
+## [0.0.2] - 10 September 2025
+### Fixed
+- Refactor API for messages and add timeout
+- Rewrite messages from Alpine.js component to plain JS component
+- Turn single click to remove message into double click
+- Add icons to message
+- Failsafe to prevent error
+- Highlight selected menu
+- Alpine.js component for main navigation menu
+- Move component logic from Loki/luma to `Loki_Theme`
+- Conditionally apply layout handles
+- Move theme config to separate config class
+- Move Alpine CSP and JS removal via layout to `Loki_Theme` module
+- Move component definitions from constructor to DI XML
+- Move patterns and themes into DI XML
+- Only add x-title and HTML hints in Developer Mode
+- Only apply to configured themes
+- Remove require() script
+- Adding all files to git via Yireo Command
+
+## [0.0.1] - 2 September 2025
 ### Added
 - Initial release
