@@ -1,20 +1,19 @@
 <?php declare(strict_types=1);
 
-/** @version 0.0.4 */
-
 use Magento\Framework\View\Element\Template;
 
+/** @version 0.0.4 */
 /** @var Template $block */
 ?>
 <template x-if="hasCartItems">
 <div id="minicart-content-wrapper">
     <div class="block-title">
         <strong>
-            <span class="text"><?= __('My Cart') ?></span>
+            <span class="text"><?= $escaper->escapeHtml(__('My Cart')) ?></span>
             <span
                 class="qty"
                 :class="qtyClass"
-                title="<?= __('Items in Cart') ?>"
+                title="<?= $escaper->escapeHtml(__('Items in Cart')) ?>"
                 x-html="cart.summary_count">0</span>
         </strong>
     </div>
@@ -31,12 +30,12 @@ use Magento\Framework\View\Element\Template;
 
         <div class="items-total">
             <span class="count" x-html="cart.summary_count">0</span>
-            <span><?= __('Items in Cart') ?></span>
+            <span><?= $escaper->escapeHtml(__('Items in Cart')) ?></span>
         </div>
 
         <div class="subtotal">
             <span class="label">
-                <span><?= __('Cart Subtotal') ?></span>
+                <span><?= $escaper->escapeHtml(__('Cart Subtotal')) ?></span>
             </span>
 
             <div class="amount price-container">
@@ -51,12 +50,17 @@ use Magento\Framework\View\Element\Template;
                 <button id="top-cart-btn-checkout" type="button"
                         class="action primary checkout"
                         @click="proceedToCheckout"
-                        title="<?= __('Proceed to Checkout') ?>"><?= __('Proceed to Checkout') ?>
+                        title="<?= $escaper->escapeHtml(__('Proceed to Checkout')) ?>"
+                >
+                    <?= $escaper->escapeHtml(__('Proceed to Checkout')) ?>
                 </button>
             </div>
         </div>
 
-        <strong class="subtitle"><?= __('Recently added item(s)') ?></strong>
+        <strong class="subtitle">
+            <?= $escaper->escapeHtml(__('Recently added item(s)')) ?>
+        </strong>
+
         <div class="minicart-items-wrapper">
             <ol id="mini-cart" class="minicart-items">
                 <template x-for="item in cart.items">
@@ -92,8 +96,9 @@ use Magento\Framework\View\Element\Template;
                                     </div>
 
                                     <div class="details-qty qty">
-                                        <label class="label"
-                                               :for="'cart-item-' + item.item_id + '-qty'"><?= __('Qty') ?></label>
+                                        <label class="label" :for="'cart-item-' + item.item_id + '-qty'">
+                                            <?= $escaper->escapeHtml(__('Qty')) ?>
+                                        </label>
                                         <input type="number" min="0" size="4"
                                                class="item-qty cart-item-qty"
                                                :id="'cart-item-' + item.item_id + '-qty'"
@@ -104,8 +109,8 @@ use Magento\Framework\View\Element\Template;
                                         <button  class="update-cart-item"
                                                 :data-cart-item="item.item_id"
                                                 @click="updateCartItemQty"
-                                                title="<?= __('Update') ?>">
-                                        <span><?= __('Update') ?></span>
+                                                title="<?= $escaper->escapeHtml(__('Update')) ?>">
+                                        <span><?= $escaper->escapeHtml(__('Update')) ?></span>
                                         </button>
                                     </div>
                                 </div>
@@ -114,16 +119,18 @@ use Magento\Framework\View\Element\Template;
                                     <div class="primary">
                                         <a class="action edit"
                                            :href="item.configure_url"
-                                           title="<?= __('Edit item') ?>">
-                                        <span><?= __('Edit') ?></span>
+                                           title="<?= $escaper->escapeHtml(__('Edit item')) ?>"
+                                        >
+                                            <span><?= $escaper->escapeHtml(__('Edit')) ?></span>
                                         </a>
                                     </div>
                                     <div class="secondary">
                                         <a @click="removeCartItem"
                                            class="action delete"
                                            :data-cart-item="item.item_id"
-                                           title="<?= __('Remove item') ?>">
-                                        <span><?= __('Remove') ?></span>
+                                           title="<?= $escaper->escapeHtml(__('Remove item')) ?>"
+                                        >
+                                            <span><?= $escaper->escapeHtml(__('Remove')) ?></span>
                                         </a>
                                     </div>
                                 </div>
@@ -137,8 +144,8 @@ use Magento\Framework\View\Element\Template;
         <div class="actions">
             <div class="secondary">
                 <a class="action viewcart"
-                   href="<?= $block->getUrl('checkout/cart') ?>">
-                    <span><?= __('View and Edit Cart') ?></span>
+                   href="<?= /* @noEscape */ $block->getUrl('checkout/cart') ?>">
+                    <span><?= $escaper->escapeHtml(__('View and Edit Cart')) ?></span>
                 </a>
             </div>
         </div>
@@ -151,6 +158,6 @@ use Magento\Framework\View\Element\Template;
 
 <template x-if="hasNoCartItems">
     <div>
-        <?= __('Your cart is empty') ?>
+        <?= $escaper->escapeHtml(__('Your cart is empty')) ?>
     </div>
 </template>

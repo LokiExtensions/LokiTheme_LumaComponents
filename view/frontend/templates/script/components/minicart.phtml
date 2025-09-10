@@ -54,7 +54,7 @@ use Magento\Framework\View\Element\Template;
                 minicartBlock.style.display = 'none';
             },
             proceedToCheckout() {
-                window.location = '<?= $block->getUrl('checkout') ?>';
+                window.location = '<?= /* @noEscape */ $block->getUrl('checkout') ?>';
             },
             updateCartItemQty(event) {
                 const cartItemId = this.$el.getAttribute('data-cart-item');
@@ -67,7 +67,7 @@ use Magento\Framework\View\Element\Template;
                     return;
                 }
 
-                const ajaxUpdateUrl = '<?= $block->getUrl(
+                const ajaxUpdateUrl = '<?= /* @noEscape */ $block->getUrl(
                     'checkout/sidebar/updateItemQty'
                 ) ?>';
 
@@ -88,7 +88,7 @@ use Magento\Framework\View\Element\Template;
                             Alpine.store('LumaLocalStorage').refresh('cart');
                         }
 
-                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= __('Updated quantity') ?>');
+                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Updated quantity')) ?>');
                     });
             },
             hasCartItems() {
@@ -104,7 +104,7 @@ use Magento\Framework\View\Element\Template;
             removeCartItem(event) {
                 const cartItemId = this.$el.getAttribute('data-cart-item');
 
-                const ajaxUpdateUrl = '<?= $block->getUrl(
+                const ajaxUpdateUrl = '<?= /* @noEscape */ $block->getUrl(
                     'checkout/sidebar/removeItem'
                 ) ?>';
 
@@ -124,7 +124,7 @@ use Magento\Framework\View\Element\Template;
                             Alpine.store('LumaLocalStorage').refresh('cart');
                         }
 
-                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= __('Removed item') ?>');
+                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Removed item')) ?>');
                     });
             }
         }));
