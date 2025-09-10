@@ -7,4 +7,4 @@
 $jsUrl = $block->getViewFileUrl('Loki_Theme::js/alpine-csp.js');
 $defer = (bool)$block->getDefer();
 ?>
-<script defer src="<?= $jsUrl ?>" <?php if ($defer) : ?>defer<?php endif; ?>></script>
+<script defer src="<?= /* @noEscape */ $jsUrl ?>" <?php if ($defer) : ?>defer<?php endif; ?>></script>
