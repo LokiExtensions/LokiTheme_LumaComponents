@@ -31,6 +31,9 @@ use Magento\Framework\View\Element\Template;
 
                 const messagesElement = [...this.$el.getElementsByClassName('messages')][0];
                 messages.forEach(message => {
+                    const messageInnerElement = document.createElement('div');
+                    messageInnerElement.innerHTML = message.text;
+
                     const messageElement = document.createElement('div');
                     messageElement.addEventListener('click', (e) => {
                         messagesElement.removeChild(messageElement);
@@ -38,8 +41,8 @@ use Magento\Framework\View\Element\Template;
                     messageElement.classList.add('message');
                     messageElement.classList.add('message-' + message.type);
                     messageElement.classList.add(message.type);
-                    messageElement.role = 'alert'
-                    messageElement.innerHTML = message.text;
+                    messageElement.role = 'alert';
+                    messageElement.appendChild(messageInnerElement);
 
                     messagesElement.appendChild(messageElement);
                 })
