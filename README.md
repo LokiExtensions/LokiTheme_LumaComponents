@@ -1,14 +1,11 @@
-# Loki_Theme module
-**Helper module for the Magento 2 [Loki/base](https://github.com/LokiExtensions/loki-base-theme)**
+# `Loki_Theme` module
+**Helper module for the Magento 2 [Loki/base](https://github.com/LokiExtensions/loki-base-theme). This module removes
+legacy Luma JavaScript and adds JS components or Alpine.js components where needed**
 
 ## Installation
 ```bash
-mkdir -p app/code/Loki
-cd app/code/Loki
-git clone git@github.com:LokiExtensions/Loki_Theme.git Theme
-cd -
+composer require loki/magento2-theme
 bin/magento module:enable Loki_Theme
 ```
 
-
-Make sure to install and enable the [Loki/base](https://github.com/LokiExtensions/loki-base-theme) theme as well.
+Make sure to carefully read the docs at [https://loki-extensions.com/docs/theme](https://loki-extensions.com/docs/theme)
