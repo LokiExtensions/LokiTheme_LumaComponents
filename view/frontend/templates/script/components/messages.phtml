@@ -35,9 +35,10 @@ use Magento\Framework\View\Element\Template;
                     messageInnerElement.innerHTML = message.text;
 
                     const messageElement = document.createElement('div');
-                    messageElement.addEventListener('click', (e) => {
+                    messageElement.addEventListener('dblclick', (e) => {
                         messagesElement.removeChild(messageElement);
                     });
+
                     messageElement.classList.add('message');
                     messageElement.classList.add('message-' + message.type);
                     messageElement.classList.add(message.type);
