@@ -47,6 +47,6 @@ class AddJsComponents implements ObserverInterface
     ): string {
         $additional = 'data-js-component="'.$componentName.'"';
 
-        return preg_replace('/^<([a-z]+)/msi', '<\1 '.$additional, $html);
+        return preg_replace('/^<([a-z]+)/', '<\1 '.$additional, $html);
     }
 }

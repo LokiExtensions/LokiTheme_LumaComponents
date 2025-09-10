@@ -56,7 +56,7 @@ class AddAlpineComponents implements ObserverInterface
             $additional .= ' x-title="'.$blockName.'"';
         }
 
-        return preg_replace('/^<([a-z]+)/msi', '<\1 '.$additional, $html);
+        return preg_replace('/^<([a-z]+)/', '<\1 '.$additional, $html);
     }
 
     private function isDeveloperMode(): bool
