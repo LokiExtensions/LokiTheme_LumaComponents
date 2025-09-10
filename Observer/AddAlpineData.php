@@ -32,6 +32,10 @@ class AddAlpineData implements ObserverInterface
         }
 
         foreach ($this->componentDefinitions as $blockName => $componentName) {
+            if (false === $componentName) {
+                continue;
+            }
+
             if ($blockName === $block->getNameInLayout()) {
                 $html = $this->addComponentNameToHtml($html, $componentName, $block);
             }

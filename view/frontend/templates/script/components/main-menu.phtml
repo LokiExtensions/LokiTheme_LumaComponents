@@ -1,0 +1,41 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LumaMainMenu', () => ({
+            init() {
+                this.toggleSubmenus();
+                this.addUiIcons();
+            },
+            toggleSubmenus() {
+                for (level = 0; level < 3; level++) {
+                    [...this.$el.querySelectorAll('li.level' + level)].forEach(element => {
+                        const subMenus = [...element.querySelectorAll('ul.level' + level)];
+                        if (subMenus.length) {
+                            element.addEventListener('mouseenter', () => {
+                                subMenus[0].style.display = 'block';
+                            });
+
+                            element.addEventListener('mouseleave', () => {
+                                subMenus[0].style.display = 'none';
+                            });
+                        }
+                    });
+                }
+            },
+            addUiIcons() {
+                [...this.$el.querySelectorAll('a')].forEach(item => {
+                    const span = document.createElement("span");
+                    span.classList.add('ui-menu-icon');
+                    span.classList.add('ui-icon');
+                    item.appendChild(span);
+                });
+            }
+        }));
+    });
+</script>
