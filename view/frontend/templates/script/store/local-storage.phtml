@@ -4,6 +4,8 @@ declare(strict_types=1);
 use Magento\Framework\View\Element\Template;
 
 /** @var Template $block */
+
+// @todo: Invalidate sections based on data_id
 ?>
 <script>
     document.addEventListener('alpine:init', () => {
@@ -11,8 +13,8 @@ use Magento\Framework\View\Element\Template;
             key: 'mage-cache-storage',
             data: {},
             init() {
-                const stored = localStorage.getItem(this.key);
-                this.data = stored ? JSON.parse(stored) : null;
+                const storedData = localStorage.getItem(this.key);
+                this.data = storedData ? JSON.parse(storedData) : null;
 
                 if (!this.data) {
                     this.refresh();
@@ -61,9 +63,32 @@ use Magento\Framework\View\Element\Template;
                 delete this.data[key];
                 this.save();
             },
-            clear() {
+            reset() {
                 this.data = {};
                 localStorage.removeItem(this.key);
+            }
+        });
+
+        Alpine.store('LumaMessageStore', {
+            addMessage(type, text) {
+                const store = Alpine.store('LumaLocalStorage');
+                const messageSection = store.get('messages') ?? {};
+                const messages = messageSection.messages ?? [];
+                messages.push({type, text});
+                messageSection.messages = messages;
+                store.set('messages', messageSection);
+            },
+            addErrorMessage(text) {
+                this.addMessage('error', text);
+            },
+            addWarningMessage(text) {
+                this.addMessage('warning', text);
+            },
+            addSuccessMessage(text) {
+                this.addMessage('success', text);
+            },
+            addNoticeMessage(text) {
+                this.addMessage('notice', text);
             }
         });
     });

@@ -4,9 +4,20 @@ declare(strict_types=1);
 use Magento\Framework\View\Element\Template;
 
 /** @var Template $block */
+$timeout = $block->getTimeout();
+if (false === is_numeric($timeout)) {
+    $timeout = 5000;
+}
 ?>
 <script>
     document.addEventListener('alpine:init', () => {
+        const componentElement = document.querySelector('[data-js-component="LumaMessages"]');
+        if (!componentElement) {
+            return;
+        }
+
+        const store = Alpine.store('LumaLocalStorage');
+
         function getMessagesFromCookie() {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; mage-messages=`);
@@ -28,35 +39,45 @@ use Magento\Framework\View\Element\Template;
             return JSON.parse(decoded);
         }
 
-        let messagesFromStore = [];
-        const messageSection = Alpine.store('LumaLocalStorage').get('messages');
-        if (messageSection && messageSection.messages) {
-            messagesFromStore = Object.values(messageSection.messages);
+        function displayMessages(messages) {
+            if (!messages.length > 0) {
+                return;
+            }
+
+            const messagesElement = [...componentElement.getElementsByClassName('messages')][0];
+            messages.forEach(message => {
+                const messageInnerElement = document.createElement('div');
+                messageInnerElement.innerHTML = message.text;
+
+                const messageElement = document.createElement('div');
+                messageElement.addEventListener('dblclick', (e) => {
+                    messagesElement.removeChild(messageElement);
+                });
+
+                messageElement.classList.add('message');
+                messageElement.classList.add('message-' + message.type);
+                messageElement.classList.add(message.type);
+                messageElement.role = 'alert';
+                messageElement.appendChild(messageInnerElement);
+
+                messagesElement.appendChild(messageElement);
+
+                setTimeout(() => {
+                    messagesElement.removeChild(messageElement);
+                }, <?= /* @noEscape */ (int)$timeout ?>);
+            });
         }
 
-        const messages = [
-            ...messagesFromStore,
-            ...getMessagesFromCookie()
-        ];
+        Alpine.effect(() => {
+            if (!store.data || !store.data.messages || !store.data.messages.messages) {
+                return;
+            }
 
-        const componentElement = document.querySelector('[data-js-component="LumaMessages"]');
-        const messagesElement = [...componentElement.getElementsByClassName('messages')][0];
-        messages.forEach(message => {
-            const messageInnerElement = document.createElement('div');
-            messageInnerElement.innerHTML = message.text;
-
-            const messageElement = document.createElement('div');
-            messageElement.addEventListener('dblclick', (e) => {
-                messagesElement.removeChild(messageElement);
-            });
-
-            messageElement.classList.add('message');
-            messageElement.classList.add('message-' + message.type);
-            messageElement.classList.add(message.type);
-            messageElement.role = 'alert';
-            messageElement.appendChild(messageInnerElement);
-
-            messagesElement.appendChild(messageElement);
+            const messages = Alpine.store('LumaLocalStorage').data.messages.messages;
+            displayMessages(messages);
+            store.set('messages', null);
         })
+
+        displayMessages(getMessagesFromCookie());
     });
 </script>
