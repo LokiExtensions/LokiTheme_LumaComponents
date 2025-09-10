@@ -1,13 +1,13 @@
 {
     "sequence": [
+        "Magento_Csp",
         "Magento_Store"
     ],
     "modules": [
+        "Magento_Csp",
         "Magento_Store"
     ],
     "components": [],
     "config": [],
-    "tests": [],
-    "phpcs_severity": "8",
-    "phpstan_level": "5"
+    "tests": []
 }
