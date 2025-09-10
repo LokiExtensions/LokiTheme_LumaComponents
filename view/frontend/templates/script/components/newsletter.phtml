@@ -1,0 +1,35 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LumaNewsletter', () => ({
+            init() {
+                const button = this.$el.getElementsByTagName('button')[0];
+                const form = document.getElementById('newsletter-validate-detail');
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('newsletter').value;
+                    if (!email) {
+                        // @todo: Give an error
+                        return;
+                    }
+
+                    // @todo Validate email
+                    Alpine.store('LumaLocalStorage').remove('messages');
+
+                    var formKeyInput = document.createElement('input');
+                    formKeyInput.name = 'form_key';
+                    formKeyInput.value = window.FORM_KEY;
+                    form.appendChild(formKeyInput);
+
+                    form.submit();
+                });
+            }
+        }));
+    });
+</script>

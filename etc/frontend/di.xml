@@ -26,7 +26,7 @@
         <arguments>
             <argument name="componentDefinitions" xsi:type="array">
                 <item name="product.info.details" xsi:type="string">LumaTabs</item>
-                <item name="form.subscribe" xsi:type="string">LumaFormSubscribe</item>
+                <item name="form.subscribe" xsi:type="string">LumaNewsletter</item>
                 <item name="messages" xsi:type="string">LumaMessages</item>
             </argument>
         </arguments>

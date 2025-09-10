@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('LumaLocalStorage', {
+            key: 'mage-cache-storage',
+            data: {},
+            init() {
+                const stored = localStorage.getItem(this.key);
+                this.data = stored ? JSON.parse(stored) : null;
+
+                if (!this.data) {
+                    this.refresh();
+                }
+            },
+            save() {
+                localStorage.setItem(this.key, JSON.stringify(this.data));
+            },
+            refresh(sections) {
+                let url = BASE_URL + '/customer/section/load';
+                if (sections) {
+                    url += '?sections=' + sections;
+                }
+
+                fetch(url)
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then(newData => {
+                        if (typeof newData === 'object') {
+                            this.data = Object.assign(this.get(), newData);
+                            this.save();
+                        }
+                    })
+            },
+            get(key) {
+                if (!this.data) {
+                    return {};
+                }
+
+                if (key === undefined) {
+                    return this.data;
+                }
+
+                if (!this.data.hasOwnProperty(key) || !this.data[key] ) {
+                    this.refresh(key);
+                }
+
+                return this.data[key];
+            },
+            set(key, value) {
+                this.data[key] = value;
+                this.save();
+            },
+            remove(key) {
+                delete this.data[key];
+                this.save();
+            },
+            clear() {
+                this.data = {};
+                localStorage.removeItem(this.key);
+            }
+        });
+    });
+</script>
