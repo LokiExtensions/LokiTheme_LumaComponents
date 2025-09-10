@@ -3,10 +3,8 @@
 namespace Loki\Theme\Observer;
 
 use Loki\Theme\Config\ThemeConfig;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\Message\Manager;
 use Magento\Framework\View\LayoutInterface;
 
 class ApplyLayoutHandles implements ObserverInterface
@@ -19,13 +17,6 @@ class ApplyLayoutHandles implements ObserverInterface
 
     public function execute(Observer $observer): void
     {
-
-        $messageManager = ObjectManager::getInstance()->get(Manager::class);
-        $messageManager->addErrorMessage('Test error');
-        $messageManager->addWarningMessage('Test warning');
-        $messageManager->addSuccessMessage('Test success');
-        $messageManager->addNoticeMessage('Test notice');
-
         if (false === $this->themeConfig->modifyCurrentTheme()) {
             return;
         }
