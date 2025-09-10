@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 10 September 2025
+### Fixed
+- Remove additional legacy JS in checkout
+- Prevent error when message is already removed
+
 ## [0.0.2] - 10 September 2025
 ### Fixed
 - Refactor API for messages and add timeout
