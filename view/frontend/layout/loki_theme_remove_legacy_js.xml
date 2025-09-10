@@ -4,6 +4,8 @@
         <remove src="requirejs/require.js"/>
         <remove src="mage/requirejs/mixins.js"/>
         <remove src="requirejs-config.js"/>
+        <remove src="Magento_Csp::js/sri.js"/>
+        <remove src="LokiCheckout_Luma/js/requirejs-additional-config.js"/>
     </head>
 
     <body>
