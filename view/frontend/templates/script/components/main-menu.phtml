@@ -11,18 +11,25 @@ use Magento\Framework\View\Element\Template;
             init() {
                 this.toggleSubmenus();
                 this.addUiIcons();
+                this.highlightSelected();
+            },
+            highlightSelected() {
+                var currentUrl = window.location.href.split('?')[0];
+                var item = this.$el.querySelector('a[href="' + currentUrl + '"]');
+                item.parentNode.classList.add('active');
+                item.parentNode.closest('li.level0').classList.add('has-active');
             },
             toggleSubmenus() {
                 for (level = 0; level < 3; level++) {
                     [...this.$el.querySelectorAll('li.level' + level)].forEach(element => {
-                        const subMenus = [...element.querySelectorAll('ul.level' + level)];
-                        if (subMenus.length) {
+                        const subMenu = element.querySelector('ul.level' + level);
+                        if (subMenu) {
                             element.addEventListener('mouseenter', () => {
-                                subMenus[0].style.display = 'block';
+                                subMenu.style.display = 'block';
                             });
 
                             element.addEventListener('mouseleave', () => {
-                                subMenus[0].style.display = 'none';
+                                subMenu.style.display = 'none';
                             });
                         }
                     });
