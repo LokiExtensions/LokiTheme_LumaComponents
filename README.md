@@ -1,6 +1,5 @@
 # `Loki_Theme` module
-**Helper module for the Magento 2 [Loki/base](https://github.com/LokiExtensions/loki-base-theme). This module removes
-legacy Luma JavaScript and adds JS components or Alpine.js components where needed**
+**Module for Magento 2 to remove legacy Luma JavaScript and adds JS components or Alpine.js components where needed**
 
 ## Installation
 ```bash
