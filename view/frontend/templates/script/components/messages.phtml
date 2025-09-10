@@ -7,67 +7,56 @@ use Magento\Framework\View\Element\Template;
 ?>
 <script>
     document.addEventListener('alpine:init', () => {
-        Alpine.data('LumaMessages', () => ({
-            init() {
-                let messagesFromStore = [];
-                const messageSection = Alpine.store('LumaLocalStorage').get('messages');
-                if (messageSection && messageSection.messages) {
-                    messagesFromStore = Object.values(messageSection.messages);
-                }
-
-                const messages = [
-                    ...messagesFromStore,
-                    ...this.getMessagesFromCookie()
-                ];
-
-                /*
-                const messages = [
-                    {type: 'error', text: 'Example error'},
-                    {type: 'warning', text: 'Example warning'},
-                    {type: 'success', text: 'Example success'},
-                    {type: 'notice', text: 'Example notice'},
-                ];
-                 */
-
-                const messagesElement = [...this.$el.getElementsByClassName('messages')][0];
-                messages.forEach(message => {
-                    const messageInnerElement = document.createElement('div');
-                    messageInnerElement.innerHTML = message.text;
-
-                    const messageElement = document.createElement('div');
-                    messageElement.addEventListener('dblclick', (e) => {
-                        messagesElement.removeChild(messageElement);
-                    });
-
-                    messageElement.classList.add('message');
-                    messageElement.classList.add('message-' + message.type);
-                    messageElement.classList.add(message.type);
-                    messageElement.role = 'alert';
-                    messageElement.appendChild(messageInnerElement);
-
-                    messagesElement.appendChild(messageElement);
-                })
-            },
-            getMessagesFromCookie() {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; mage-messages=`);
-                if (parts.length !== 2) {
-                    return [];
-                }
-
-                document.cookie = "mage-messages=";
-                const part = parts.pop().split(";").shift();
-                if (!part) {
-                    return [];
-                }
-
-                const decoded = decodeURIComponent(part);
-                if (!decoded) {
-                    return [];
-                }
-
-                return JSON.parse(decoded);
+        function getMessagesFromCookie() {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; mage-messages=`);
+            if (parts.length !== 2) {
+                return [];
             }
-        }));
+
+            document.cookie = "mage-messages=";
+            const part = parts.pop().split(";").shift();
+            if (!part) {
+                return [];
+            }
+
+            const decoded = decodeURIComponent(part);
+            if (!decoded) {
+                return [];
+            }
+
+            return JSON.parse(decoded);
+        }
+
+        let messagesFromStore = [];
+        const messageSection = Alpine.store('LumaLocalStorage').get('messages');
+        if (messageSection && messageSection.messages) {
+            messagesFromStore = Object.values(messageSection.messages);
+        }
+
+        const messages = [
+            ...messagesFromStore,
+            ...getMessagesFromCookie()
+        ];
+
+        const componentElement = document.querySelector('[data-js-component="LumaMessages"]');
+        const messagesElement = [...componentElement.getElementsByClassName('messages')][0];
+        messages.forEach(message => {
+            const messageInnerElement = document.createElement('div');
+            messageInnerElement.innerHTML = message.text;
+
+            const messageElement = document.createElement('div');
+            messageElement.addEventListener('dblclick', (e) => {
+                messagesElement.removeChild(messageElement);
+            });
+
+            messageElement.classList.add('message');
+            messageElement.classList.add('message-' + message.type);
+            messageElement.classList.add(message.type);
+            messageElement.role = 'alert';
+            messageElement.appendChild(messageInnerElement);
+
+            messagesElement.appendChild(messageElement);
+        })
     });
 </script>

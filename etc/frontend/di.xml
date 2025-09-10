@@ -22,13 +22,20 @@
         </arguments>
     </type>
 
-    <type name="Loki\Theme\Observer\AddAlpineData">
+    <type name="Loki\Theme\Observer\AddAlpineComponents">
         <arguments>
             <argument name="componentDefinitions" xsi:type="array">
                 <item name="product.info.details" xsi:type="string">LumaTabs</item>
                 <item name="form.subscribe" xsi:type="string">LumaNewsletter</item>
-                <item name="messages" xsi:type="string">LumaMessages</item>
                 <item name="catalog.topnav" xsi:type="string">LumaMainMenu</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Loki\Theme\Observer\AddJsComponents">
+        <arguments>
+            <argument name="componentDefinitions" xsi:type="array">
+                <item name="messages" xsi:type="string">LumaMessages</item>
             </argument>
         </arguments>
     </type>

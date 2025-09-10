@@ -13,8 +13,16 @@
             instance="Loki\Theme\Observer\RemoveLegacyHtmlBindings"
         />
         <observer
-            name="Loki_Theme::addAlpineData"
-            instance="Loki\Theme\Observer\AddAlpineData"
+            name="Loki_Theme::addAlpineComponents"
+            instance="Loki\Theme\Observer\AddAlpineComponents"
+        />
+        <observer
+            name="Loki_Theme::addJsComponents"
+            instance="Loki\Theme\Observer\AddJsComponents"
+        />
+        <observer
+            name="Loki_Theme::addBlockHints"
+            instance="Loki\Theme\Observer\AddBlockHints"
         />
     </event>
 </config>

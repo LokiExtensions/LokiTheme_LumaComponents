@@ -6,14 +6,12 @@ use Loki\Theme\Config\ThemeConfig;
 use Magento\Framework\App\State as AppState;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\View\Element\AbstractBlock;
 
-class AddAlpineData implements ObserverInterface
+class AddBlockHints implements ObserverInterface
 {
     public function __construct(
         private readonly ThemeConfig $themeConfig,
         private readonly AppState $appState,
-        private array $componentDefinitions = []
     ) {
     }
 
@@ -31,38 +29,12 @@ class AddAlpineData implements ObserverInterface
             return;
         }
 
-        foreach ($this->componentDefinitions as $blockName => $componentName) {
-            if (false === $componentName) {
-                continue;
-            }
-
-            if ($blockName === $block->getNameInLayout()) {
-                $html = $this->addComponentNameToHtml($html, $componentName, $block);
-            }
-        }
-
         if ($this->isDeveloperMode()) {
             $html = "<!-- TEMPLATE: ".$block->getTemplateFile()." -->\n".$html;
             $html = "<!-- BLOCK: ".$block->getNameInLayout()." -->\n".$html;
         }
 
         $transport->setHtml($html);
-    }
-
-    private function addComponentNameToHtml(
-        string $html,
-        string $componentName,
-        AbstractBlock $block
-    ): string {
-        $additional = '';
-        $additional .= ' x-data="'.$componentName.'"';
-
-        if ($this->isDeveloperMode()) {
-            $blockName = str_replace('.', '-', $block->getNameInLayout());
-            $additional .= ' x-title="'.$blockName.'"';
-        }
-
-        return preg_replace('/^<([a-z]+)/msi', '<\1 '.$additional, $html);
     }
 
     private function isDeveloperMode(): bool
