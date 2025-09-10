@@ -65,7 +65,9 @@ if (false === is_numeric($timeout)) {
                 messagesElement.appendChild(messageElement);
 
                 setTimeout(() => {
-                    messagesElement.removeChild(messageElement);
+                    if (messagesElement.contains(messageElement)) {
+                        messagesElement.removeChild(messageElement);
+                    }
                 }, <?= /* @noEscape */ (int)$timeout ?>);
             });
         }
