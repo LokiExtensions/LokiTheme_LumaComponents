@@ -1,0 +1,132 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @version 0.0.2 */
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LumaMiniCart', () => ({
+            cart: {},
+            init() {
+                const anchor = this.$el.querySelector('a.action.showcart');
+                if (anchor) {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const minicartBlock = this.getMinicartBlock();
+                        minicartBlock.style.display = minicartBlock.style.display === 'block' ? 'none' : 'block';
+                    });
+                }
+
+                Alpine.effect(() => {
+                    this.cart = Alpine.store('LumaLocalStorage').get('cart');
+
+                    const qty = this.$el.querySelector('span.counter.qty');
+                    if (qty) {
+                        if (this.cart) {
+                            qty.classList.remove('empty');
+                        } else {
+                            qty.classList.add('empty');
+                        }
+                    }
+
+                    const counterNumber = this.$el.querySelector('span.counter-number');
+                    if (counterNumber) {
+                        if (this.cart) {
+                            counterNumber.innerHTML = this.cart.summary_count;
+                        } else {
+                            counterNumber.innerHTML = 0;
+                        }
+                    }
+                });
+            },
+            getMinicartBlock() {
+                return this.$el.querySelector('div.block.block-minicart');
+            },
+            qtyClass() {
+                return this.summaryCount > 0 ? '' : 'empty';
+            },
+            closeContent() {
+                console.log('Close content via button');
+                const minicartBlock = this.getMinicartBlock();
+                minicartBlock.style.display = 'none';
+            },
+            proceedToCheckout() {
+                window.location = '<?= $block->getUrl('checkout') ?>';
+            },
+            updateCartItemQty(event) {
+                const cartItemId = this.$el.getAttribute('data-cart-item');
+                const cartItemInput = document.getElementById('cart-item-' + cartItemId + '-qty');
+                const cartItemQty = parseInt(cartItemInput.value);
+                const cartItem = this.cart.items.find((item) => item.item_id === cartItemId);
+                const currentQty = parseInt(cartItem.qty);
+
+                if (currentQty === cartItemQty) {
+                    return;
+                }
+
+                const ajaxUpdateUrl = '<?= $block->getUrl(
+                    'checkout/sidebar/updateItemQty'
+                ) ?>';
+
+                fetch(ajaxUpdateUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    },
+                    body: new URLSearchParams({
+                        'item_id': cartItemId,
+                        'item_qty': cartItemQty,
+                        'form_key': window.FORM_KEY
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Alpine.store('LumaLocalStorage').refresh('cart');
+                        }
+
+                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= __('Updated quantity') ?>');
+                    });
+            },
+            hasCartItems() {
+                if (!this.cart || !this.cart.items) {
+                    return false;
+                }
+
+                return this.cart.items.length > 0;
+            },
+            hasNoCartItems() {
+                return !this.hasCartItems();
+            },
+            removeCartItem(event) {
+                const cartItemId = this.$el.getAttribute('data-cart-item');
+
+                const ajaxUpdateUrl = '<?= $block->getUrl(
+                    'checkout/sidebar/removeItem'
+                ) ?>';
+
+                fetch(ajaxUpdateUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    },
+                    body: new URLSearchParams({
+                        'item_id': cartItemId,
+                        'form_key': window.FORM_KEY
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Alpine.store('LumaLocalStorage').refresh('cart');
+                        }
+
+                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= __('Removed item') ?>');
+                    });
+            }
+        }));
+    });
+</script>
