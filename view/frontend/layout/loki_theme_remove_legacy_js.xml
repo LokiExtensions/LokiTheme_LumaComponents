@@ -6,6 +6,8 @@
         <remove src="requirejs-config.js"/>
         <remove src="Magento_Csp::js/sri.js"/>
         <remove src="LokiCheckout_Luma/js/requirejs-additional-config.js"/>
+
+        <remove src="mage/calendar.css"/>
     </head>
 
     <body>
