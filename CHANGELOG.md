@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Remove additional legacy JS in checkout
 - Prevent error when message is already removed
+- Add dep with CSP
 
 ## [0.0.2] - 10 September 2025
 ### Fixed
