@@ -1,20 +1,22 @@
 {
-  "name": "loki/magento2-theme",
-  "version": "0.0.2",
-  "description": "Module to allow for Loki Themes to work",
-  "type": "magento2-module",
-  "require": {
-    "magento/framework": "^103.0"
-  },
-  "license": [
-    "OSL-3.0"
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "loki/magento2-theme",
+    "version": "0.0.2",
+    "description": "Module to allow for Loki Themes to work",
+    "type": "magento2-module",
+    "require": {
+        "ext-pcre": "*",
+        "magento/framework": "^103.0",
+        "magento/module-store": "^101.1"
+    },
+    "license": [
+        "OSL-3.0"
     ],
-    "psr-4": {
-      "Loki\\Theme\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Loki\\Theme\\": ""
+        }
     }
-  }
 }
