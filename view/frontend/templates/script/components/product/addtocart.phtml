@@ -38,7 +38,8 @@ use Magento\Framework\View\Element\Template;
                 },
                 body: data
             }).finally(function () {
-                Alpine.store('LumaLocalStorage').refresh('cart,messages');
+                Alpine.store('LumaLocalStorage').refresh('cart');
+                Alpine.store('LumaLocalStorage').refresh('messages');
                 button.disabled = false;
             });
         });
