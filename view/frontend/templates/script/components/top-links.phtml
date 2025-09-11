@@ -30,7 +30,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
             },
             showCustomerUrls() {
                 this.getCustomerElements().forEach(element => {
-                    if (element) element.parentNode.style.display = 'block';
+                    if (element) element.parentNode.style.display = 'inline-block';
                 });
             },
             hideCustomerUrls() {
