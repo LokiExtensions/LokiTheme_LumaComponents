@@ -10,6 +10,12 @@
                 </arguments>
             </block>
 
+            <block name="loki.script.cookies" template="Loki_Theme::script/cookies.phtml">
+                <arguments>
+                    <argument name="cookie_config" xsi:type="object">Loki\Theme\ViewModel\CookieConfig</argument>
+                </arguments>
+            </block>
+
             <block name="loki.script.store.local-storage" template="Loki_Theme::script/store/local-storage.phtml"/>
 
             <block name="loki.script.components.main-menu" template="Loki_Theme::script/components/main-menu.phtml"/>
@@ -17,6 +23,7 @@
             <block name="loki.script.components.messages" template="Loki_Theme::script/components/messages.phtml"/>
             <block name="loki.script.components.minicart" template="Loki_Theme::script/components/minicart.phtml"/>
             <block name="loki.script.components.top-links" template="Loki_Theme::script/components/top-links.phtml"/>
+            <block name="loki.script.components.cookie-notice" template="Loki_Theme::script/components/cookie-notice.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">

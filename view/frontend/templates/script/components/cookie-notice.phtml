@@ -1,0 +1,25 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    (function() {
+        const cookieNoticeBlock = document.getElementById('notice-cookie-block');
+        if (!cookieNoticeBlock) {
+            return;
+        }
+
+        const userAllowedSaveCookie = LokiCookies.get('user_allowed_save_cookie');
+        if (!userAllowedSaveCookie) {
+            cookieNoticeBlock.style.display = 'block';
+        }
+
+        document.getElementById('btn-cookie-allow').addEventListener('click', (e) => {
+            LokiCookies.set('user_allowed_save_cookie', 1);
+            cookieNoticeBlock.style.display = 'none';
+        });
+    })();
+</script>
