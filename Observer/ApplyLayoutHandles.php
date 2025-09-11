@@ -22,6 +22,9 @@ class ApplyLayoutHandles implements ObserverInterface
         }
 
         $this->layout->getUpdate()->addHandle('loki_theme_remove_legacy_js');
-        $this->layout->getUpdate()->addHandle('loki_theme_add_alpine');
+
+        foreach ($this->layout->getUpdate()->getHandles() as $handle) {
+            $this->layout->getUpdate()->addHandle('loki_theme_' . $handle);
+        }
     }
 }
