@@ -1,0 +1,71 @@
+<?php
+declare(strict_types=1);
+
+/** @version 0.0.4 */
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+
+$customerAccountLogoutUrl = $block->getUrl('customer/account/logout');
+$customerAccountLoginUrl = $block->getUrl('customer/account/login');
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LumaTopLinks', () => ({
+            init() {
+                Alpine.effect(() => {
+                    const customerSection = Alpine.store('LumaLocalStorage').get('customer');
+
+                    if (customerSection.id) {
+                        this.showCustomerUrls();
+                        this.hideGuestUrls();
+                        this.showGreeting();
+                    } else {
+                        this.hideCustomerUrls();
+                        this.showGuestUrls();
+                        this.hideGreeting();
+                    }
+                });
+            },
+            showCustomerUrls() {
+                this.getCustomerElements().forEach(element => {
+                    if (element) element.parentNode.style.display = 'block';
+                });
+            },
+            hideCustomerUrls() {
+                this.getCustomerElements().forEach(element => {
+                    if (element) element.parentNode.style.display = 'none';
+                });
+            },
+            showGuestUrls() {
+                this.getGuestElements().forEach(element => {
+                    if (element) element.parentNode.style.display = 'inline-block';
+                });
+            },
+            hideGuestUrls() {
+                this.getGuestElements().forEach(element => {
+                    if (element) element.parentNode.style.display = 'none';
+                });
+            },
+            showGreeting() {
+                const customerSection = Alpine.store('LumaLocalStorage').get('customer');
+                this.$el.querySelector('.logged-in').innerHTML = '<?= /* @noEscape */ __('Welcome, %1') ?>'
+                    .replace('%1', customerSection.fullname);
+            },
+            hideGreeting() {
+                this.$el.querySelector('.greet.welcome').style.display = 'none';
+            },
+            getGuestElements() {
+                return [
+                    this.$el.querySelector('a[href="<?= /* @noEscape */ $customerAccountLoginUrl ?>"]')
+                ];
+            },
+            getCustomerElements() {
+                return [
+                    this.$el.querySelector('a[href="<?= /* @noEscape */ $customerAccountLogoutUrl ?>"]')
+                ];
+            }
+        }));
+    });
+</script>
