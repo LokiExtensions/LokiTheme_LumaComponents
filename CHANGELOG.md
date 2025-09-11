@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 11 September 2025
+### Fixed
+- Fix messages not being fetched when FPC is enabled
+- Fix inline block
+
 ## [0.0.5] - 11 September 2025
 ### Fixed
 - Add LokiCookies API and cookie notice
