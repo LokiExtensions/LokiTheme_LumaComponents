@@ -20,7 +20,7 @@ Currently, the following components are built-in:
 - Newsletter subscribe
 - Add-to-cart (product page)
 - Add-to-cart (category page)
-- Tabs (product page)**
+- Tabs (product page)
 
 Make sure to carefully read the docs at [https://loki-extensions.com/docs/theme](https://loki-extensions.com/docs/theme)
 
