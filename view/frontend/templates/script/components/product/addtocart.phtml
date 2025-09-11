@@ -1,0 +1,44 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        const form = document.getElementById('product_addtocart_form');
+        if (!form) {
+            return;
+        }
+
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = false;
+
+        form.addEventListener('submit', (e) => {
+            button.disabled = true;
+
+            e.preventDefault();
+
+            const data = new FormData();
+            data.append('product', form.querySelector('input[name="product"]').value);
+            data.append('item', form.querySelector('input[name="item"]').value);
+            data.append('qty', form.querySelector('input[name="qty"]').value);
+            data.append('related_product', form.querySelector('input[name="related_product"]').value);
+            data.append('selected_configurable_option', form.querySelector('input[name="selected_configurable_option"]').value);
+            data.append('form_key', form.querySelector('input[name="form_key"]').value);
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'multipart/form-data; charset=UTF-8',
+                },
+                body: data
+            }).finally(function () {
+                Alpine.store('LumaLocalStorage').refresh('cart,messages');
+                button.disabled = false;
+            });
+        });
+    });
+</script>
