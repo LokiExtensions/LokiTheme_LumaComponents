@@ -1,6 +1,6 @@
 {
     "name": "loki/magento2-theme",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Module to allow for Loki Themes to work",
     "type": "magento2-module",
     "require": {

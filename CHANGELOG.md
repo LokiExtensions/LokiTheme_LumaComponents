@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.5] - 11 September 2025
+### Fixed
+- Add LokiCookies API and cookie notice
+- Add top links component
+- Add-to-cart for both PDP and PLP
+- Add any layout handle with `loki_theme_` prefix
+- Reuse `loki.alpinejs` block name
+- Obviously remove mage/calendar.css
+- Only add component definitions once
+- Update README
+
 ## [0.0.4] - 10 September 2025
 ### Fixed
 - Add minicart
