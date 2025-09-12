@@ -14,13 +14,13 @@ use Magento\Framework\View\Element\Template;
             return;
         }
 
-        const userAllowedSaveCookie = LokiCookies.get('user_allowed_save_cookie');
+        const userAllowedSaveCookie = LokiCookies.isAllowedSaving();
         if (!userAllowedSaveCookie) {
             cookieNoticeBlock.style.display = 'block';
         }
 
-        document.getElementById('btn-cookie-allow').addEventListener('click', (e) => {
-            LokiCookies.set('user_allowed_save_cookie', 1);
+        document.getElementById('btn-cookie-allow').addEventListener('click', () => {
+            LokiCookies.set('user_allowed_save_cookie', JSON.stringify({1:1}));
             cookieNoticeBlock.style.display = 'none';
         });
     })();
