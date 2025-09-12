@@ -38,6 +38,9 @@
         <arguments>
             <argument name="componentDefinitions" xsi:type="array">
                 <item name="messages" xsi:type="string">LumaMessages</item>
+                <item name="catalog.leftnav" xsi:type="string">LumaLayeredNavigation</item>
+                <item name="category.product.addto.wishlist" xsi:type="string">LumaAddToWishlist</item>
+                <item name="category.product.addto.compare" xsi:type="string">LumaAddToCompare</item>
             </argument>
         </arguments>
     </type>

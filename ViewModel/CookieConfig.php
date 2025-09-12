@@ -36,7 +36,7 @@ class CookieConfig implements ArgumentInterface
 
     public function getSameSite(): string
     {
-        return 'Strict'; // @todo Strict, Lax or None
+        return 'Lax'; // @todo Strict, Lax or None
     }
     private function get(string $path): mixed
     {

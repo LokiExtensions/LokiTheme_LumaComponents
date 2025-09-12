@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.7] - 12 September 2025
+### Fixed
+- Do not display empty minicart
+- WIP with add-to-wishlist
+- Fix cookie notice
+- Simple toggling in layered navigation
+- WIP with add-to-compare
+
 ## [0.0.6] - 11 September 2025
 ### Fixed
 - Fix messages not being fetched when FPC is enabled
