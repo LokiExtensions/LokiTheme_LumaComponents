@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    (function() {
+        const componentElement = document.querySelector('[data-js-component="LumaLayeredNavigation"]');
+        if (!componentElement) {
+            return;
+        }
+
+        [...(document.getElementsByClassName('filter-options-content'))].forEach(element => {
+            element.style.display = 'none';
+        });
+
+        [...(document.getElementsByClassName('filter-options-title'))].forEach(element => {
+            element.addEventListener('click', function(event) {
+                const content = event.target.parentNode.querySelector('[data-role="content"]');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            })
+        });
+    })();
+</script>
