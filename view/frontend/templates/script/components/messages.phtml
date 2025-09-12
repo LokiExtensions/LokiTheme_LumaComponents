@@ -21,27 +21,6 @@ if (false === is_numeric($timeout)) {
 
         const store = Alpine.store('LumaLocalStorage');
 
-        function getMessagesFromCookie() {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; mage-messages=`);
-            if (parts.length !== 2) {
-                return [];
-            }
-
-            document.cookie = "mage-messages=";
-            const part = parts.pop().split(";").shift();
-            if (!part) {
-                return [];
-            }
-
-            const decoded = decodeURIComponent(part);
-            if (!decoded) {
-                return [];
-            }
-
-            return JSON.parse(decoded);
-        }
-
         function displayMessages(messages) {
             if (!messages.length > 0) {
                 return;
@@ -81,6 +60,6 @@ if (false === is_numeric($timeout)) {
             store.remove('messages');
         })
 
-        displayMessages(getMessagesFromCookie());
+        displayMessages(LokiCookies.get('mage-messages'));
     });
 </script>

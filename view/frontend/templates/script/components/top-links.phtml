@@ -17,7 +17,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                 Alpine.effect(() => {
                     const customerSection = Alpine.store('LumaLocalStorage').get('customer');
 
-                    if (customerSection.id) {
+                    if (customerSection.fullname) {
                         this.showCustomerUrls();
                         this.hideGuestUrls();
                         this.showGreeting();
@@ -49,12 +49,20 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                 });
             },
             showGreeting() {
+                const element = this.$el.querySelector('.logged-in');
+                if (!element) {
+                    return;
+                }
+
                 const customerSection = Alpine.store('LumaLocalStorage').get('customer');
-                this.$el.querySelector('.logged-in').innerHTML = '<?= /* @noEscape */ __('Welcome, %1') ?>'
+                element.innerHTML = '<?= /* @noEscape */ __('Welcome, %1') ?>'
                     .replace('%1', customerSection.fullname);
             },
             hideGreeting() {
-                this.$el.querySelector('.greet.welcome').style.display = 'none';
+                const element = this.$el.querySelector('.greet.welcome');
+                if (element) {
+                    element.style.display = 'none';
+                }
             },
             getGuestElements() {
                 return [

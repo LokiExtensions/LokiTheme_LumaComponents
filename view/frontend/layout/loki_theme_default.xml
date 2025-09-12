@@ -23,7 +23,7 @@
             <block name="loki.script.components.messages" template="Loki_Theme::script/components/messages.phtml"/>
             <block name="loki.script.components.minicart" template="Loki_Theme::script/components/minicart.phtml"/>
             <block name="loki.script.components.top-links" template="Loki_Theme::script/components/top-links.phtml"/>
-            <block name="loki.script.components.cookie-notice" template="Loki_Theme::script/components/cookie-notice.phtml"/>
+            <block ifconfig="web/cookie/cookie_restriction" name="loki.script.components.cookie-notice" template="Loki_Theme::script/components/cookie-notice.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">

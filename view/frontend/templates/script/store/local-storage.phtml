@@ -31,7 +31,11 @@ use Magento\Framework\View\Element\Template;
                     url += '?sections=' + sections;
                 }
 
-                fetch(url)
+                fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                })
                     .then((response) => {
                         return response.json();
                     })

@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
 
-/** @version 0.0.6 */
-
 use Loki\Theme\ViewModel\CookieConfig;
 use Magento\Framework\View\Element\Template;
 
+/** @version 0.0.6 */
 /** @var Template $block */
 /** @var CookieConfig $cookieConfig */
 
@@ -25,10 +24,10 @@ $cookieConfig = $block->getCookieConfig();
                 const name = parts[0].trim();
                 let value = parts[1].trim();
 
+                value = decodeURI(value);
+                value = decodeURIComponent(value);
                 if (value.startsWith('{') && value.endsWith('}')) {
                     value = JSON.parse(value);
-                } else {
-                    value = decodeURI(value);
                 }
 
                 cookies[name] = value;
@@ -43,7 +42,10 @@ $cookieConfig = $block->getCookieConfig();
             let cookieParts = [];
             cookieParts.push(name + '=' + value);
             cookieParts.push('max-age=' + this.lifetime + 20000);
-            cookieParts.push('path=' + this.path);
+
+            if (this.path) {
+                cookieParts.push('path=' + this.path);
+            }
 
             if (this.domain) {
                 cookieParts.push('domain=' + this.domain);
@@ -54,7 +56,12 @@ $cookieConfig = $block->getCookieConfig();
             }
 
             cookieParts.push('SameSite=' + this.sameSite);
+            console.log('set cookie', cookieParts);
+
             document.cookie = cookieParts.join('; ');
+        },
+        isAllowedSaving() {
+            return this.get('user_allowed_save_cookie');
         }
     }
 </script>

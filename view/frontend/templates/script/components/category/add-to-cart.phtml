@@ -26,17 +26,16 @@ use Magento\Framework\View\Element\Template;
                 const data = new FormData();
                 data.append('product', form.querySelector('input[name="product"]').value);
                 data.append('form_key', form.querySelector('input[name="form_key"]').value);
+                data.append('uenc', form.querySelector('input[name="uenc"]').value);
 
                 fetch(form.action, {
                     method: 'POST',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest',
-                        'Content-Type': 'multipart/form-data; charset=UTF-8',
                     },
                     body: data
                 }).finally(function () {
-                    Alpine.store('LumaLocalStorage').refresh('cart');
-                    Alpine.store('LumaLocalStorage').refresh('messages');
+                    Alpine.store('LumaLocalStorage').refresh('cart,messages');
                     button.disabled = false;
                 });
             });
