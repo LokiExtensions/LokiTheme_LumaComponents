@@ -25,7 +25,7 @@ use Magento\Framework\View\Element\Template;
 
                     const qty = this.$el.querySelector('span.counter.qty');
                     if (qty) {
-                        if (this.cart) {
+                        if (this.cart && this.cart.summary_count > 0) {
                             qty.classList.remove('empty');
                         } else {
                             qty.classList.add('empty');
@@ -34,10 +34,10 @@ use Magento\Framework\View\Element\Template;
 
                     const counterNumber = this.$el.querySelector('span.counter-number');
                     if (counterNumber) {
-                        if (this.cart) {
+                        if (this.cart && this.cart.summary_count > 0) {
                             counterNumber.innerHTML = this.cart.summary_count;
                         } else {
-                            counterNumber.innerHTML = 0;
+                            counterNumber.innerHTML = '';
                         }
                     }
                 });
