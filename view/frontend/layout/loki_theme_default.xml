@@ -1,23 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <update handle="loki_base"/>
+
     <body>
-        <referenceContainer name="before.body.end">
-            <block name="loki.alpinejs" template="Loki_Theme::script/alpine-csp.phtml"/>
-
-            <block name="loki.script.variables" template="Loki_Theme::script/variables.phtml">
-                <arguments>
-                    <argument name="form_key_value" xsi:type="object">Loki\Theme\ViewModel\FormKeyValue</argument>
-                </arguments>
-            </block>
-
-            <block name="loki.script.cookies" template="Loki_Theme::script/cookies.phtml">
-                <arguments>
-                    <argument name="cookie_config" xsi:type="object">Loki\Theme\ViewModel\CookieConfig</argument>
-                </arguments>
-            </block>
-
-            <block name="loki.script.store.local-storage" template="Loki_Theme::script/store/local-storage.phtml"/>
-
+        <referenceContainer name="loki.components">
             <block name="loki.script.components.main-menu" template="Loki_Theme::script/components/main-menu.phtml"/>
             <block name="loki.script.components.newsletter" template="Loki_Theme::script/components/newsletter.phtml"/>
             <block name="loki.script.components.messages" template="Loki_Theme::script/components/messages.phtml"/>

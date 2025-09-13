@@ -21,7 +21,7 @@ use Magento\Framework\View\Element\Template;
                 }
 
                 Alpine.effect(() => {
-                    this.cart = Alpine.store('LumaLocalStorage').get('cart');
+                    this.cart = Alpine.store('LokiLocalStorage').get('cart');
 
                     const qty = this.$el.querySelector('span.counter.qty');
                     if (qty) {
@@ -85,10 +85,10 @@ use Magento\Framework\View\Element\Template;
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            Alpine.store('LumaLocalStorage').refresh('cart');
+                            Alpine.store('LokiLocalStorage').refresh('cart');
                         }
 
-                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Updated quantity')) ?>');
+                        Alpine.store('LokiMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Updated quantity')) ?>');
                     });
             },
             hasCartItems() {
@@ -121,10 +121,10 @@ use Magento\Framework\View\Element\Template;
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            Alpine.store('LumaLocalStorage').refresh('cart');
+                            Alpine.store('LokiLocalStorage').refresh('cart');
                         }
 
-                        Alpine.store('LumaMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Removed item')) ?>');
+                        Alpine.store('LokiMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Removed item')) ?>');
                     });
             }
         }));
