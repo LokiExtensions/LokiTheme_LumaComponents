@@ -15,7 +15,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
         Alpine.data('LumaTopLinks', () => ({
             init() {
                 Alpine.effect(() => {
-                    const customerSection = Alpine.store('LumaLocalStorage').get('customer');
+                    const customerSection = Alpine.store('LokiLocalStorage').get('customer');
 
                     if (customerSection.fullname) {
                         this.showCustomerUrls();
@@ -54,7 +54,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                     return;
                 }
 
-                const customerSection = Alpine.store('LumaLocalStorage').get('customer');
+                const customerSection = Alpine.store('LokiLocalStorage').get('customer');
                 element.innerHTML = '<?= /* @noEscape */ __('Welcome, %1') ?>'
                     .replace('%1', customerSection.fullname);
             },

@@ -19,10 +19,12 @@ if (false === is_numeric($timeout)) {
             return;
         }
 
-        const store = Alpine.store('LumaLocalStorage');
+        return;
+
+        const store = Alpine.store('LokiLocalStorage');
 
         function displayMessages(messages) {
-            if (!messages.length > 0) {
+            if (!messages || !messages.length > 0) {
                 return;
             }
 
@@ -50,16 +52,16 @@ if (false === is_numeric($timeout)) {
             });
         }
 
+        displayMessages(Alpine.store('LokiMessageStore').getMessages());
+
         Alpine.effect(() => {
             if (!store.data || !store.data.messages || !store.data.messages.messages) {
                 return;
             }
 
-            const messages = Alpine.store('LumaLocalStorage').data.messages.messages;
+            const messages = Alpine.store('LokiMessageStore').getMessages();
             displayMessages(messages);
-            store.remove('messages');
+            Alpine.store('LokiMessageStore').reset();
         })
-
-        displayMessages(LokiCookies.get('mage-messages'));
     });
 </script>

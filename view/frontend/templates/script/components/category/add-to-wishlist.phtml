@@ -17,9 +17,9 @@ use Magento\Framework\View\Element\Template;
         element.addEventListener('click', (e) => {
             e.preventDefault();
 
-            const customerSection = Alpine.store('LumaLocalStorage').get('customer');
+            const customerSection = Alpine.store('LokiLocalStorage').get('customer');
             if (!customerSection.fullname) {
-                Alpine.store('LumaMessageStore').addNoticeMessage('<?= __('You need to login to use the wishlist') ?>');
+                Alpine.store('LokiMessageStore').addNoticeMessage('<?= __('You need to login to use the wishlist') ?>');
                 return;
             }
 
