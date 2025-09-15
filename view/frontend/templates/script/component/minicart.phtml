@@ -1,15 +1,18 @@
 <?php
 declare(strict_types=1);
 
+use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
 
 /** @version 0.0.7 */
 /** @var Template $block */
+/** @var Escaper $escaper */
 ?>
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('LumaMiniCart', () => ({
             cart: {},
+            loading: false,
             init() {
                 LokiToggle.toggle(
                     'a.action.showcart',
@@ -30,30 +33,31 @@ use Magento\Framework\View\Element\Template;
 
                     const counterNumber = this.$el.querySelector('span.counter-number');
                     if (counterNumber) {
-                        if (this.cart && this.cart.summary_count > 0) {
-                            counterNumber.innerHTML = this.cart.summary_count;
-                        } else {
-                            counterNumber.innerHTML = '';
-                        }
+                        const hasSummaryCount = this.cart && this.cart.summary_count > 0;
+                        counterNumber.innerHTML = hasSummaryCount && this.cart.summary_count;
                     }
                 });
             },
             getMinicartBlock() {
-                return this.$el.querySelector('div.block.block-minicart');
+                return this.$root.querySelector('div.block-minicart');
             },
             qtyClass() {
-                return this.summaryCount > 0 ? '' : 'empty';
+                return this.cart.summary_count > 0 ? '' : 'empty';
             },
             closeContent() {
-                console.log('Close content via button');
-                const minicartBlock = this.getMinicartBlock();
-                minicartBlock.style.display = 'none';
+                this.getMinicartBlock().style.display = 'none';
             },
             proceedToCheckout() {
                 window.location = '<?= /* @noEscape */ $block->getUrl('checkout') ?>';
             },
-            updateCartItemQty(event) {
-                const cartItemId = this.$el.getAttribute('data-cart-item');
+            toggleCartItemButton() {
+                const cartItemOriginalQty = parseInt(this.$el.getAttribute('data-cart-item-qty'));
+                const cartItemNewQty = parseInt(this.$el.value);
+                const cartItemButton = this.$el.parentNode.querySelector('button');
+                cartItemButton.style.display = (cartItemNewQty !== cartItemOriginalQty) ? 'inline-block' : 'none';
+            },
+            updateCartItemQty() {
+                const cartItemId = this.$el.getAttribute('data-cart-item-id');
                 const cartItemInput = document.getElementById('cart-item-' + cartItemId + '-qty');
                 const cartItemQty = parseInt(cartItemInput.value);
                 const cartItem = this.cart.items.find((item) => item.item_id === cartItemId);
@@ -67,6 +71,7 @@ use Magento\Framework\View\Element\Template;
                     'checkout/sidebar/updateItemQty'
                 ) ?>';
 
+                this.loading = true;
                 fetch(ajaxUpdateUrl, {
                     method: 'POST',
                     headers: {
@@ -75,7 +80,7 @@ use Magento\Framework\View\Element\Template;
                     body: new URLSearchParams({
                         'item_id': cartItemId,
                         'item_qty': cartItemQty,
-                        'form_key': window.FORM_KEY
+                        'form_key': window.LOKI_FORM_KEY
                     })
                 })
                     .then(response => response.json())
@@ -85,6 +90,8 @@ use Magento\Framework\View\Element\Template;
                         }
 
                         Alpine.store('LokiMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Updated quantity')) ?>');
+
+                        this.loading = false;
                     });
             },
             hasCartItems() {
@@ -111,7 +118,7 @@ use Magento\Framework\View\Element\Template;
                     },
                     body: new URLSearchParams({
                         'item_id': cartItemId,
-                        'form_key': window.FORM_KEY
+                        'form_key': window.LOKI_FORM_KEY
                     })
                 })
                     .then(response => response.json())

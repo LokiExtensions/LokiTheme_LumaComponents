@@ -24,7 +24,7 @@ use Magento\Framework\View\Element\Template;
             }
 
             const data = JSON.parse(element.getAttribute('data-post'));
-            data.data.form_key = window.FORM_KEY;
+            data.data.form_key = window.LOKI_FORM_KEY;
 
             const form = document.createElement('form');
             form.method = 'POST';

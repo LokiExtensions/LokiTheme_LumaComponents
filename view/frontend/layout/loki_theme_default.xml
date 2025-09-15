@@ -22,7 +22,7 @@
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">
-            <block name="loki.minicart-contents" template="Loki_Theme::minicart.phtml"/>
+            <block name="loki.minicart-contents" template="Loki_Theme::component/minicart.phtml"/>
         </referenceContainer>
     </body>
 </page>
