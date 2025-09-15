@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-/** @version 0.0.7 */
-
 use Magento\Framework\View\Element\Template;
 
+/** @version 0.0.7 */
 /** @var Template $block */
 ?>
 <script>
@@ -20,8 +19,10 @@ use Magento\Framework\View\Element\Template;
 
         [...(document.getElementsByClassName('filter-options-title'))].forEach(element => {
             element.addEventListener('click', function(event) {
-                const content = event.target.parentNode.querySelector('[data-role="content"]');
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                LokiToggle.toggleElement(
+                    element,
+                    event.target.parentNode.querySelector('[data-role="content"]')
+                );
             })
         });
     })();

@@ -1,0 +1,36 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    const LokiToggle = {
+        toggle(togglerElement, contentElement) {
+            if (typeof togglerElement === 'string') {
+                togglerElement = document.querySelector(togglerElement);
+            }
+
+            if (!togglerElement) {
+                return false;
+            }
+
+            if (typeof contentElement === 'string') {
+                contentElement = document.querySelector(contentElement);
+            }
+
+            if (!contentElement) {
+                return false;
+            }
+
+            togglerElement.addEventListener('click', (event) => {
+                event.preventDefault();
+                this.toggleElement(contentElement);
+            });
+        },
+        toggleElement(element) {
+            element.style.display = element.style.display === 'block' ? 'none' : 'block';
+        }
+    };
+</script>

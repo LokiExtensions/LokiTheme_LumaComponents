@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @version 0.0.7 */
+/** @var Template $block */
+?>
+<script>
+    (function() {
+        const tabAnchors = [...this.$el.querySelectorAll('[data-toggle="trigger"]')];
+        tabAnchors.forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabAnchors.forEach(anchor => {
+                    anchor.parentNode.classList.remove('active');
+                })
+
+                const href = e.target.getAttribute('href').replace(/#/g, '');
+                const target = document.getElementById(href);
+                href.parentNode.classList.add('active');
+                target.style.display = 'block';
+            })
+        });
+    })();
+</script>

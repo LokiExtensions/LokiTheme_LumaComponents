@@ -16,8 +16,7 @@ use Magento\Framework\View\Element\Template;
                 this.highlightSelected();
             },
             highlightSelected() {
-                var currentUrl = window.location.href.split('?')[0];
-                var item = this.$el.querySelector('a[href="' + currentUrl + '"]');
+                var item = this.$el.querySelector('a[href="' + LOKI_CURRENT_URL + '"]');
                 if (item && item.parentNode) {
                     item.parentNode.classList.add('active');
                     item.parentNode.closest('li.level0').classList.add('has-active');

@@ -1,0 +1,18 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+
+?>
+<script>
+    (() => {
+        [...document.querySelectorAll('[data-toggle="dropdown"]')].forEach((element) => {
+            LokiToggle.toggle(
+                element,
+                element.parentNode.querySelector('[data-target="dropdown"]'),
+            );
+        })
+    })();
+</script>

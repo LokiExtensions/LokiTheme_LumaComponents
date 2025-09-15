@@ -2,8 +2,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
         <referenceContainer name="before.body.end">
-            <block name="loki.script.components.product.addtocart" template="Loki_Theme::script/components/product/addtocart.phtml"/>
-            <block name="loki.script.components.tabs" template="Loki_Theme::script/components/tabs.phtml"/>
+            <block name="loki.script.component.product.addtocart" template="Loki_Theme::script/component/product/addtocart.phtml"/>
+            <block name="loki.script.component.tabs" template="Loki_Theme::script/component/tabs.phtml"/>
         </referenceContainer>
     </body>
 </page>

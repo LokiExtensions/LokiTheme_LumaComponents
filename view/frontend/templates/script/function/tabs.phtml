@@ -1,0 +1,45 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    function LokiTabs(tabSwitchSelector, tabSectionSelector) {
+        function getTabSections() {
+            return [...document.querySelectorAll(tabSectionSelector)];
+        }
+
+        function getTabSwitches() {
+            return [...document.querySelectorAll(tabSwitchSelector)];
+        }
+
+        function showTab(tabId) {
+            getTabSwitches().forEach(tabSwitch => {
+                tabSwitch.parentNode.classList.remove('active');
+                if (tabSwitch.getAttribute('href') === '#' + tabId) {
+                    tabSwitch.parentNode.classList.add('active');
+                }
+            });
+
+            getTabSections().forEach((tabSection) => {
+                tabSection.style.display = 'none';
+                if (tabSection.getAttribute('id') === tabId) {
+                    tabSection.style.display = 'block';
+                }
+            });
+        }
+
+        showTab('store.menu');
+
+        getTabSwitches().forEach((tabSwitch) => {
+            tabSwitch.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const tabSectionId = event.target.getAttribute('href').split('#')[1];
+                showTab(tabSectionId);
+            })
+        })
+    }
+</script>

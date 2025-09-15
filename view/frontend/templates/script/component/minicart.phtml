@@ -11,14 +11,10 @@ use Magento\Framework\View\Element\Template;
         Alpine.data('LumaMiniCart', () => ({
             cart: {},
             init() {
-                const anchor = this.$el.querySelector('a.action.showcart');
-                if (anchor) {
-                    anchor.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const minicartBlock = this.getMinicartBlock();
-                        minicartBlock.style.display = minicartBlock.style.display === 'block' ? 'none' : 'block';
-                    });
-                }
+                LokiToggle.toggle(
+                    'a.action.showcart',
+                    this.getMinicartBlock()
+                );
 
                 Alpine.effect(() => {
                     this.cart = Alpine.store('LokiLocalStorage').get('cart');

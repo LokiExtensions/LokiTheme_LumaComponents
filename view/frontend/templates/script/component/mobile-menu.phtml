@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @version 0.0.7 */
+/** @var Template $block */
+
+$showDelay = $block->getShowDelay();
+if (false === is_numeric($showDelay)) {
+    $showDelay = 42;
+}
+?>
+<script>
+    (() => {
+        const toggler = document.querySelector('[data-action="toggle-nav"]');
+        if (toggler) {
+            toggler.addEventListener('click', () => {
+                const html = document.getElementsByTagName( 'html' )[0];
+                html.classList.add('nav-before-open');
+                setTimeout(() => {
+                    html.classList.add('nav-open');
+                }, <?= (int)$showDelay ?>);
+            });
+        }
+
+        if (LOKI_IS_MOBILE) {
+            [...document.querySelectorAll('.level0')].forEach(listItem => {
+                const submenu = listItem.querySelector('.submenu');
+                if (!submenu) {
+                    return;
+                }
+
+                const listItemAnchor = listItem.querySelector('a');
+                if (listItemAnchor.href.startsWith(LOKI_CURRENT_URL)) {
+                    submenu.classList.add('active');
+                    submenu.style.display = 'block';
+                } else {
+                    submenu.style.display = 'none';
+                }
+
+                listItemAnchor.href = '#';
+                LokiToggle.toggle(listItemAnchor, submenu);
+
+                const listItemAnchorSpan = listItemAnchor.querySelector('span');
+                if (!listItemAnchorSpan) {
+                    return;
+                }
+
+                const categoryLink = document.createElement('a');
+                categoryLink.href = listItemAnchor.getAttribute('href');
+
+                categoryLink.innerHTML = '<?= /* @noEscape */ __('All %1') ?>'.replace('%1', listItemAnchorSpan.innerHTML);
+
+                const categoryLinkListItem = document.createElement('li');
+                categoryLinkListItem.appendChild(categoryLink);
+
+                submenu.prepend(categoryLinkListItem);
+            });
+        }
+
+        LokiTabs(
+            '.nav-sections-items [data-toggle="switch"]',
+            '.nav-sections-items [data-role="content"]'
+        );
+    })();
+</script>
