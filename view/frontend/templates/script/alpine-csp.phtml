@@ -1,9 +1,0 @@
-<?php declare(strict_types=1);
-
-/** @version 0.0.7 */
-/** @var \Magento\Framework\View\Element\Template $block */
-
-$jsUrl = $block->getViewFileUrl('Loki_Theme::js/alpine-csp.js');
-$defer = (bool)$block->getDefer();
-?>
-<script defer src="<?= /* @noEscape */ $jsUrl ?>" <?php if ($defer) : ?>defer<?php endif; ?>></script>

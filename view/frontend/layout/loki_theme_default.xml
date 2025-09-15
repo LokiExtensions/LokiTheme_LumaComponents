@@ -4,12 +4,12 @@
 
     <body>
         <referenceContainer name="loki.components">
-            <block name="loki.script.components.main-menu" template="Loki_Theme::script/components/main-menu.phtml"/>
-            <block name="loki.script.components.newsletter" template="Loki_Theme::script/components/newsletter.phtml"/>
-            <block name="loki.script.components.messages" template="Loki_Theme::script/components/messages.phtml"/>
-            <block name="loki.script.components.minicart" template="Loki_Theme::script/components/minicart.phtml"/>
-            <block name="loki.script.components.top-links" template="Loki_Theme::script/components/top-links.phtml"/>
-            <block ifconfig="web/cookie/cookie_restriction" name="loki.script.components.cookie-notice" template="Loki_Theme::script/components/cookie-notice.phtml"/>
+            <block name="loki.script.component.main-menu" template="Loki_Theme::script/components/main-menu.phtml"/>
+            <block name="loki.script.component.newsletter" template="Loki_Theme::script/components/newsletter.phtml"/>
+            <block name="loki.script.component.messages" template="Loki_Theme::script/components/messages.phtml"/>
+            <block name="loki.script.component.minicart" template="Loki_Theme::script/components/minicart.phtml"/>
+            <block name="loki.script.component.top-links" template="Loki_Theme::script/components/top-links.phtml"/>
+            <block ifconfig="web/cookie/cookie_restriction" name="loki.script.component.cookie-notice" template="Loki_Theme::script/components/cookie-notice.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">
