@@ -6,6 +6,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.8] - 16 September 2025
+### Fixed
+- Add wishlist counter to top links
+- Apply LumaTopLinks to both top.links and header.links
+- Sef long lifetime on user_allowed_save_cookie cookie
+- Apply right handle names
+- Rename namespaces
+- Update README
+- Multiple add to compare and add to wishlist
+- Simplify add to wishlist with LokiDataPost(element)
+- Fix toggle
+- Skip non-frontend themes in config option
+- Configure applied theme via store config, not DI type
+- Fixes in cookies, minicart, newsletter and styling
+- Cleanup
+- Fix mobile menu
+- Cleanup after merge
+- Add new Loki_Base as dependency and move over common logic
+
 ## [0.0.7] - 12 September 2025
 ### Fixed
 - Do not display empty minicart
