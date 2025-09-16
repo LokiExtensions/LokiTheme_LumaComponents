@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Loki\Theme\Config\Source;
+namespace LokiTheme\LumaComponents\Config\Source;
 
 use Magento\Framework\App\Area;
 use Magento\Framework\Data\OptionSourceInterface;

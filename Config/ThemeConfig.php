@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Loki\Theme\Config;
+namespace LokiTheme\LumaComponents\Config;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\DesignInterface;
@@ -16,7 +16,7 @@ class ThemeConfig
 
     public function getThemes(): array
     {
-        $themeNames = trim($this->scopeConfig->getValue('loki_theme/general/themes'));
+        $themeNames = trim($this->scopeConfig->getValue('LokiTheme_LumaComponents/general/themes'));
         if (empty($themeNames)) {
             return [];
         }

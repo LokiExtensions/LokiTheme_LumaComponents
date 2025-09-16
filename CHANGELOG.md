@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add LokiCookies API and cookie notice
 - Add top links component
 - Add-to-cart for both PDP and PLP
-- Add any layout handle with `loki_theme_` prefix
+- Add any layout handle with `LokiTheme_LumaComponents_` prefix
 - Reuse `loki.alpinejs` block name
 - Obviously remove mage/calendar.css
 - Only add component definitions once
@@ -49,10 +49,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Failsafe to prevent error
 - Highlight selected menu
 - Alpine.js component for main navigation menu
-- Move component logic from Loki/luma to `Loki_Theme`
+- Move component logic from Loki/luma to `LokiTheme_LumaComponents`
 - Conditionally apply layout handles
 - Move theme config to separate config class
-- Move Alpine CSP and JS removal via layout to `Loki_Theme` module
+- Move Alpine CSP and JS removal via layout to `LokiTheme_LumaComponents` module
 - Move component definitions from constructor to DI XML
 - Move patterns and themes into DI XML
 - Only add x-title and HTML hints in Developer Mode

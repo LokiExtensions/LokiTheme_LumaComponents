@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Loki\Theme\Observer\RemoveLegacyHtmlBindings">
+    <type name="LokiTheme\LumaComponents\Observer\RemoveLegacyHtmlBindings">
         <arguments>
             <argument name="patterns" xsi:type="array">
                 <item name="x-magento-init" xsi:type="string"><![CDATA[/<script\b[^>]*type=(["\'])text\/x-magento-init\1[^>]*>[\s\S]*?<\/script>/i]]></item>
@@ -13,7 +13,7 @@
         </arguments>
     </type>
 
-    <type name="Loki\Theme\Observer\AddAlpineComponents">
+    <type name="LokiTheme\LumaComponents\Observer\AddAlpineComponents">
         <arguments>
             <argument name="componentDefinitions" xsi:type="array">
                 <item name="form.subscribe" xsi:type="string">LumaNewsletter</item>
@@ -24,7 +24,7 @@
         </arguments>
     </type>
 
-    <type name="Loki\Theme\Observer\AddJsComponents">
+    <type name="LokiTheme\LumaComponents\Observer\AddJsComponents">
         <arguments>
             <argument name="componentDefinitions" xsi:type="array">
                 <item name="messages" xsi:type="string">LumaMessages</item>

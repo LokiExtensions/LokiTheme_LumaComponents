@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Loki_Theme::configuration" title="Loki Theme configuration" sortOrder="10"/>
+                <resource id="LokiTheme_LumaComponents::configuration" title="Loki Theme configuration" sortOrder="10"/>
             </resource>
         </resources>
     </acl>

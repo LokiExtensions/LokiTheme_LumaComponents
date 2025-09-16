@@ -1,10 +1,10 @@
-# `Loki_Theme` module
+# `LokiTheme_LumaComponents` module
 **Module for Magento 2 to remove legacy Luma JavaScript and adds JS components or Alpine.js components where needed**
 
 ## Installation
 ```bash
-composer require loki/magento2-theme
-bin/magento module:enable Loki_Theme
+composer require loki-theme/magento2-luma-components
+bin/magento module:enable LokiTheme_LumaComponents
 ```
 
 ## What this is

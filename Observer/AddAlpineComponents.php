@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Loki\Theme\Observer;
+namespace LokiTheme\LumaComponents\Observer;
 
-use Loki\Theme\Config\ThemeConfig;
+use LokiTheme\LumaComponents\Config\ThemeConfig;
 use Magento\Framework\App\State as AppState;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;

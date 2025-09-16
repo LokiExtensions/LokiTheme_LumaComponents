@@ -4,25 +4,25 @@
 
     <body>
         <referenceContainer name="loki.script">
-            <block name="loki.script.function.toggle" template="Loki_Theme::script/function/toggle.phtml"/>
-            <block name="loki.script.function.tabs" template="Loki_Theme::script/function/tabs.phtml"/>
-            <block name="loki.script.function.data-post" template="Loki_Theme::script/function/data-post.phtml"/>
+            <block name="loki.script.function.toggle" template="LokiTheme_LumaComponents::script/function/toggle.phtml"/>
+            <block name="loki.script.function.tabs" template="LokiTheme_LumaComponents::script/function/tabs.phtml"/>
+            <block name="loki.script.function.data-post" template="LokiTheme_LumaComponents::script/function/data-post.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="loki.components">
-            <block name="loki.script.component.dropdown" template="Loki_Theme::script/component/dropdown.phtml"/>
-            <block name="loki.script.component.main-menu" template="Loki_Theme::script/component/main-menu.phtml"/>
-            <block name="loki.script.component.mobile-menu" template="Loki_Theme::script/component/mobile-menu.phtml"/>
-            <block name="loki.script.component.newsletter" template="Loki_Theme::script/component/newsletter.phtml"/>
-            <block name="loki.script.component.messages" template="Loki_Theme::script/component/messages.phtml"/>
-            <block name="loki.script.component.minicart" template="Loki_Theme::script/component/minicart.phtml"/>
-            <block name="loki.script.component.top-links" template="Loki_Theme::script/component/top-links.phtml"/>
-            <block name="loki.script.component.currency-switcher" template="Loki_Theme::script/component/currency-switcher.phtml"/>
-            <block ifconfig="web/cookie/cookie_restriction" name="loki.script.component.cookie-notice" template="Loki_Theme::script/component/cookie-notice.phtml"/>
+            <block name="loki.script.component.dropdown" template="LokiTheme_LumaComponents::script/component/dropdown.phtml"/>
+            <block name="loki.script.component.main-menu" template="LokiTheme_LumaComponents::script/component/main-menu.phtml"/>
+            <block name="loki.script.component.mobile-menu" template="LokiTheme_LumaComponents::script/component/mobile-menu.phtml"/>
+            <block name="loki.script.component.newsletter" template="LokiTheme_LumaComponents::script/component/newsletter.phtml"/>
+            <block name="loki.script.component.messages" template="LokiTheme_LumaComponents::script/component/messages.phtml"/>
+            <block name="loki.script.component.minicart" template="LokiTheme_LumaComponents::script/component/minicart.phtml"/>
+            <block name="loki.script.component.top-links" template="LokiTheme_LumaComponents::script/component/top-links.phtml"/>
+            <block name="loki.script.component.currency-switcher" template="LokiTheme_LumaComponents::script/component/currency-switcher.phtml"/>
+            <block ifconfig="web/cookie/cookie_restriction" name="loki.script.component.cookie-notice" template="LokiTheme_LumaComponents::script/component/cookie-notice.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">
-            <block name="loki.minicart-contents" template="Loki_Theme::component/minicart.phtml"/>
+            <block name="loki.minicart-contents" template="LokiTheme_LumaComponents::component/minicart.phtml"/>
         </referenceContainer>
     </body>
 </page>

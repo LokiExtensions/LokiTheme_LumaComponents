@@ -2,27 +2,27 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="layout_load_before">
         <observer
-            name="Loki_Theme::applyLayoutHandles"
-            instance="Loki\Theme\Observer\ApplyLayoutHandles"
+            name="LokiTheme_LumaComponents::applyLayoutHandles"
+            instance="LokiTheme\LumaComponents\Observer\ApplyLayoutHandles"
         />
     </event>
 
     <event name="view_block_abstract_to_html_after">
         <observer
-            name="Loki_Theme::removeLegacyBindings"
-            instance="Loki\Theme\Observer\RemoveLegacyHtmlBindings"
+            name="LokiTheme_LumaComponents::removeLegacyBindings"
+            instance="LokiTheme\LumaComponents\Observer\RemoveLegacyHtmlBindings"
         />
         <observer
-            name="Loki_Theme::addAlpineComponents"
-            instance="Loki\Theme\Observer\AddAlpineComponents"
+            name="LokiTheme_LumaComponents::addAlpineComponents"
+            instance="LokiTheme\LumaComponents\Observer\AddAlpineComponents"
         />
         <observer
-            name="Loki_Theme::addJsComponents"
-            instance="Loki\Theme\Observer\AddJsComponents"
+            name="LokiTheme_LumaComponents::addJsComponents"
+            instance="LokiTheme\LumaComponents\Observer\AddJsComponents"
         />
         <observer
-            name="Loki_Theme::addBlockHints"
-            instance="Loki\Theme\Observer\AddBlockHints"
+            name="LokiTheme_LumaComponents::addBlockHints"
+            instance="LokiTheme\LumaComponents\Observer\AddBlockHints"
         />
     </event>
 </config>
