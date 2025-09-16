@@ -20,7 +20,6 @@ use Magento\Framework\View\Element\Template;
         [...(document.getElementsByClassName('filter-options-title'))].forEach(element => {
             element.addEventListener('click', function(event) {
                 LokiToggle.toggleElement(
-                    element,
                     event.target.parentNode.querySelector('[data-role="content"]')
                 );
             })
