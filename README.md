@@ -25,6 +25,8 @@ Currently, the following components are built-in:
 - Newsletter subscribe
 - Add-to-cart (product page)
 - Add-to-cart (category page)
+- Add-to-wishlist (category page)
+- Add-to-compare (category page)
 - Tabs (product page)
 - Currency switcher
 
