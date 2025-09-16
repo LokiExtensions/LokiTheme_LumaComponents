@@ -183,8 +183,7 @@ $loaderImage = $block->getViewFileUrl('images/loader-2.gif');
                 <div class="actions">
                     <div class="secondary">
                         <a class="action viewcart"
-                           href="<?= /* @noEscape */
-                           $block->getUrl('checkout/cart') ?>">
+                           href="<?= /* @noEscape */ $block->getUrl('checkout/cart') ?>">
                             <span><?= $escaper->escapeHtml(
                                     __('View and Edit Cart')
                                 ) ?></span>
