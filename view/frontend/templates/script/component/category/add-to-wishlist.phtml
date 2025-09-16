@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-/** @version 0.0.7 */
-
 use Magento\Framework\View\Element\Template;
 
+/** @version 0.0.7 */
 /** @var Template $block */
 ?>
 <script>
@@ -23,26 +22,7 @@ use Magento\Framework\View\Element\Template;
                 return;
             }
 
-            const data = JSON.parse(element.getAttribute('data-post'));
-            data.data.form_key = window.LOKI_FORM_KEY;
-
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = data.action;
-            form.style.display = 'none';
-
-            Object.entries(data.data).forEach(pair => {
-                const key = pair[0];
-                const value = pair[1];
-                const field = document.createElement('input');
-                field.type = 'hidden';
-                field.name = key;
-                field.value = value;
-                form.appendChild(field);
-            });
-
-            document.body.appendChild(form);
-            form.submit();
+            LokiDataPost(element);
         })
     });
 </script>
