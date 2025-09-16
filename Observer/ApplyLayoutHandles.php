@@ -21,10 +21,10 @@ class ApplyLayoutHandles implements ObserverInterface
             return;
         }
 
-        $this->layout->getUpdate()->addHandle('LokiTheme_LumaComponents_remove_legacy_js');
+        $this->layout->getUpdate()->addHandle('loki_theme_remove_legacy_js');
 
         foreach ($this->layout->getUpdate()->getHandles() as $handle) {
-            $this->layout->getUpdate()->addHandle('LokiTheme_LumaComponents_' . $handle);
+            $this->layout->getUpdate()->addHandle('loki_theme_' . $handle);
         }
     }
 }
