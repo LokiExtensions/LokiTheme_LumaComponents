@@ -21,6 +21,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                         this.showCustomerUrls();
                         this.hideGuestUrls();
                         this.showGreeting();
+                        this.showWishlistText();
                     } else {
                         this.hideCustomerUrls();
                         this.showGuestUrls();
@@ -63,6 +64,19 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                 if (element) {
                     element.style.display = 'none';
                 }
+            },
+            showWishlistText() {
+                const element = this.$el.querySelector('.link.wishlist span.counter');
+                if (!element) {
+                    return;
+                }
+
+                const wishlistSection = Alpine.store('LokiLocalStorage').get('wishlist');
+                if (!wishlistSection) {
+                    return;
+                }
+
+                element.innerHTML = wishlistSection.counter;
             },
             getGuestElements() {
                 return [
