@@ -8,21 +8,23 @@ use Magento\Framework\View\Element\Template;
 ?>
 <script>
     document.addEventListener('alpine:init', () => {
-        const element = document.querySelector('[data-js-component="LumaAddToWishlist"]');
-        if (!element) {
+        const elements = [...document.querySelectorAll('[data-js-component="LumaAddToWishlist"]')];
+        if (!elements.length > 0) {
             return;
         }
 
-        element.addEventListener('click', (e) => {
-            e.preventDefault();
+        elements.forEach((element) => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
 
-            const customerSection = Alpine.store('LokiLocalStorage').get('customer');
-            if (!customerSection.fullname) {
-                Alpine.store('LokiMessageStore').addNoticeMessage('<?= __('You need to login to use the wishlist') ?>');
-                return;
-            }
+                const customerSection = Alpine.store('LokiLocalStorage').get('customer');
+                if (!customerSection.fullname) {
+                    Alpine.store('LokiMessageStore').addNoticeMessage('<?= __('You need to login to use the wishlist') ?>');
+                    return;
+                }
 
-            LokiDataPost(element);
+                LokiDataPost(element);
+            });
         })
     });
 </script>
