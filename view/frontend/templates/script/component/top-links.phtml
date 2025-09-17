@@ -17,7 +17,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                 Alpine.effect(() => {
                     const customerSection = Alpine.store('LokiLocalStorage').get('customer');
 
-                    if (customerSection.fullname) {
+                    if (customerSection && customerSection.fullname) {
                         this.showCustomerUrls();
                         this.hideGuestUrls();
                         this.showGreeting();
