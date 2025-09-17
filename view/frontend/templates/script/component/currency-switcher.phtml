@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-/** @version 0.0.8 */
-
 use Magento\Framework\View\Element\Template;
 
+/** @version 0.0.8 */
 /** @var Template $block */
 ?>
 <script>
@@ -12,7 +11,6 @@ use Magento\Framework\View\Element\Template;
         [...document.querySelectorAll('.switcher-option a')].forEach(element => {
             element.addEventListener('click', (event) => {
                 event.preventDefault();
-                console.log('click event', event);
                 LokiDataPost(event.target);
             });
         })
