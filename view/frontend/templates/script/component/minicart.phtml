@@ -86,7 +86,7 @@ use Magento\Framework\View\Element\Template;
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            Alpine.store('LokiLocalStorage').refresh('cart');
+                            Alpine.store('LokiLocalStorage').refresh('cart,messages', true);
                         }
 
                         Alpine.store('LokiMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Updated quantity')) ?>');
@@ -124,7 +124,7 @@ use Magento\Framework\View\Element\Template;
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            Alpine.store('LokiLocalStorage').refresh('cart');
+                            Alpine.store('LokiLocalStorage').refresh('cart,messages', true);
                         }
 
                         Alpine.store('LokiMessageStore').addNoticeMessage('<?= $escaper->escapeHtml(__('Removed item')) ?>');
