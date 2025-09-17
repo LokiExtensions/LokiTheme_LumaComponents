@@ -14,7 +14,6 @@
             <block name="loki.script.component.main-menu" template="LokiTheme_LumaComponents::script/component/main-menu.phtml"/>
             <block name="loki.script.component.mobile-menu" template="LokiTheme_LumaComponents::script/component/mobile-menu.phtml"/>
             <block name="loki.script.component.newsletter" template="LokiTheme_LumaComponents::script/component/newsletter.phtml"/>
-            <block name="loki.script.component.messages" template="LokiTheme_LumaComponents::script/component/messages.phtml"/>
             <block name="loki.script.component.minicart" template="LokiTheme_LumaComponents::script/component/minicart.phtml"/>
             <block name="loki.script.component.top-links" template="LokiTheme_LumaComponents::script/component/top-links.phtml"/>
             <block name="loki.script.component.currency-switcher" template="LokiTheme_LumaComponents::script/component/currency-switcher.phtml"/>
