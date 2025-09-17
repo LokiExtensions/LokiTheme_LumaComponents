@@ -1,6 +1,6 @@
 {
     "name": "loki-theme/magento2-luma-components",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "Module to allow for Loki Themes to work",
     "type": "magento2-module",
     "require": {

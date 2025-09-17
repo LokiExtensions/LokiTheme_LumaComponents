@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.9] - 17 September 2025
+### Fixed
+- Remove legacy messaging
+- Add new section refresh to add-to-cart components
+- Renew message section when renewing cart section
+- Fix error when customer section is undefined
+
 ## [0.0.8] - 16 September 2025
 ### Fixed
 - Add wishlist counter to top links
