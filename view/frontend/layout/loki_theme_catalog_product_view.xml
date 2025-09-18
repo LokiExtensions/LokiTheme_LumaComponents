@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="before.body.end">
-            <block name="loki.script.component.product.addtocart" template="LokiTheme_LumaComponents::script/component/product/addtocart.phtml"/>
-            <block name="loki.script.component.tabs" template="LokiTheme_LumaComponents::script/component/tabs.phtml"/>
+        <referenceContainer name="loki.script.component">
+            <block
+                name="loki.script.component.product.addtocart"
+                template="LokiTheme_LumaComponents::script/component/product/addtocart.phtml"/>
+            <block
+                name="loki.script.component.tabs"
+                template="LokiTheme_LumaComponents::script/component/tabs.phtml"/>
         </referenceContainer>
     </body>
 </page>

@@ -1,23 +1,44 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <update handle="loki_base"/>
 
     <body>
         <referenceContainer name="loki.script">
-            <block name="loki.script.function.toggle" template="LokiTheme_LumaComponents::script/function/toggle.phtml"/>
-            <block name="loki.script.function.tabs" template="LokiTheme_LumaComponents::script/function/tabs.phtml"/>
-            <block name="loki.script.function.data-post" template="LokiTheme_LumaComponents::script/function/data-post.phtml"/>
+            <block name="loki.script.function.toggle"
+                   template="LokiTheme_LumaComponents::script/function/toggle.phtml"/>
+            <block name="loki.script.function.tabs"
+                   template="LokiTheme_LumaComponents::script/function/tabs.phtml"/>
+            <block name="loki.script.function.data-post"
+                   template="LokiTheme_LumaComponents::script/function/data-post.phtml"/>
         </referenceContainer>
 
-        <referenceContainer name="loki.components">
-            <block name="loki.script.component.dropdown" template="LokiTheme_LumaComponents::script/component/dropdown.phtml"/>
-            <block name="loki.script.component.main-menu" template="LokiTheme_LumaComponents::script/component/main-menu.phtml"/>
-            <block name="loki.script.component.mobile-menu" template="LokiTheme_LumaComponents::script/component/mobile-menu.phtml"/>
-            <block name="loki.script.component.newsletter" template="LokiTheme_LumaComponents::script/component/newsletter.phtml"/>
-            <block name="loki.script.component.minicart" template="LokiTheme_LumaComponents::script/component/minicart.phtml"/>
-            <block name="loki.script.component.top-links" template="LokiTheme_LumaComponents::script/component/top-links.phtml"/>
-            <block name="loki.script.component.currency-switcher" template="LokiTheme_LumaComponents::script/component/currency-switcher.phtml"/>
-            <block ifconfig="web/cookie/cookie_restriction" name="loki.script.component.cookie-notice" template="LokiTheme_LumaComponents::script/component/cookie-notice.phtml"/>
+        <referenceContainer name="loki.script.components">
+            <block
+                name="loki.script.component.dropdown"
+                template="LokiTheme_LumaComponents::script/component/dropdown.phtml"/>
+            <block
+                name="loki.script.component.main-menu"
+                template="LokiTheme_LumaComponents::script/component/main-menu.phtml"/>
+            <block
+                name="loki.script.component.mobile-menu"
+                template="LokiTheme_LumaComponents::script/component/mobile-menu.phtml"/>
+            <block
+                name="loki.script.component.newsletter"
+                template="LokiTheme_LumaComponents::script/component/newsletter.phtml"/>
+            <block
+                name="loki.script.component.minicart"
+                template="LokiTheme_LumaComponents::script/component/minicart.phtml"/>
+            <block
+                name="loki.script.component.top-links"
+                template="LokiTheme_LumaComponents::script/component/top-links.phtml"/>
+            <block
+                name="loki.script.component.currency-switcher"
+                template="LokiTheme_LumaComponents::script/component/currency-switcher.phtml"/>
+            <block
+                ifconfig="web/cookie/cookie_restriction"
+                name="loki.script.component.cookie-notice"
+                template="LokiTheme_LumaComponents::script/component/cookie-notice.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">
