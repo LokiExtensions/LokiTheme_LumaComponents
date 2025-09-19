@@ -14,14 +14,14 @@
             <block name="loki.script.component.main-menu" template="LokiTheme_LumaComponents::script/component/main-menu.phtml"/>
             <block name="loki.script.component.mobile-menu" template="LokiTheme_LumaComponents::script/component/mobile-menu.phtml"/>
             <block name="loki.script.component.newsletter" template="LokiTheme_LumaComponents::script/component/newsletter.phtml"/>
-            <block name="loki.script.component.minicart" template="LokiTheme_LumaComponents::script/component/minicart.phtml"/>
+            <block name="loki.script.component.minicart-content" template="LokiTheme_LumaComponents::script/component/minicart-content.phtml"/>
             <block name="loki.script.component.top-links" template="LokiTheme_LumaComponents::script/component/top-links.phtml"/>
             <block name="loki.script.component.currency-switcher" template="LokiTheme_LumaComponents::script/component/currency-switcher.phtml"/>
             <block ifconfig="web/cookie/cookie_restriction" name="loki.script.component.cookie-notice" template="LokiTheme_LumaComponents::script/component/cookie-notice.phtml"/>
         </referenceContainer>
 
         <referenceContainer name="minicart.addons">
-            <block name="loki.minicart-contents" template="LokiTheme_LumaComponents::component/minicart.phtml"/>
+            <block name="loki.minicart-content" template="LokiTheme_LumaComponents::component/minicart-content.phtml"/>
         </referenceContainer>
     </body>
 </page>
