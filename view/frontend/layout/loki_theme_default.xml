@@ -4,14 +4,14 @@
     <update handle="loki_base"/>
 
     <body>
-        <referenceContainer name="loki.script">
+        <referenceBlock name="loki.script">
             <block name="loki.script.function.toggle"
                    template="LokiTheme_LumaComponents::script/function/toggle.phtml"/>
             <block name="loki.script.function.tabs"
                    template="LokiTheme_LumaComponents::script/function/tabs.phtml"/>
             <block name="loki.script.function.data-post"
                    template="LokiTheme_LumaComponents::script/function/data-post.phtml"/>
-        </referenceContainer>
+        </referenceBlock>
 
         <referenceBlock name="loki.script.component-type">
             <block name="loki.script.component.minicart-content" template="LokiTheme_LumaComponents::script/component-type/minicart-component-type.phtml"/>
