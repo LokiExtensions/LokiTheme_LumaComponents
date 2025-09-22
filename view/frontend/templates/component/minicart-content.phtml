@@ -15,7 +15,7 @@ $loaderImage = $block->getViewFileUrl('images/loader-2.gif');
             type="button"
             id="btn-minicart-close"
             class="action close"
-            @click="closeContent"
+            @click.prevent="closeContent"
             title="Close">
             <span>Close</span>
         </button>
@@ -63,7 +63,7 @@ $loaderImage = $block->getViewFileUrl('images/loader-2.gif');
                     <div class="primary">
                         <button id="top-cart-btn-checkout" type="button"
                                 class="action primary checkout"
-                                @click="proceedToCheckout"
+                                @click.prevent="proceedToCheckout"
                                 title="<?= $escaper->escapeHtml(
                                     __('Proceed to Checkout')
                                 ) ?>"
@@ -135,7 +135,7 @@ $loaderImage = $block->getViewFileUrl('images/loader-2.gif');
                                                 <button class="update-cart-item"
                                                         :data-cart-item-id="item.item_id"
                                                         style="display:none"
-                                                        @click="updateCartItemQty"
+                                                        @click.prevent="updateCartItemQty"
                                                         title="<?= $escaper->escapeHtml(
                                                             __('Update')
                                                         ) ?>">
@@ -160,7 +160,7 @@ $loaderImage = $block->getViewFileUrl('images/loader-2.gif');
                                                 </a>
                                             </div>
                                             <div class="secondary">
-                                                <a @click="removeCartItem"
+                                                <a @click.prevent="removeCartItem"
                                                    class="action delete"
                                                    :data-cart-item="item.item_id"
                                                    title="<?= $escaper->escapeHtml(

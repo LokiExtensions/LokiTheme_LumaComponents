@@ -1,11 +1,19 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="before.body.end">
-            <block name="loki.script.component.category.addtocart" template="LokiTheme_LumaComponents::script/component/category/add-to-cart.phtml"/>
-            <block name="loki.script.component.category.layered-navigation" template="LokiTheme_LumaComponents::script/component/category/layered-navigation.phtml"/>
-            <block name="loki.script.component.category.add-to-wishlist" template="LokiTheme_LumaComponents::script/component/category/add-to-wishlist.phtml"/>
-            <block name="loki.script.component.category.add-to-compare" template="LokiTheme_LumaComponents::script/component/category/add-to-compare.phtml"/>
+        <referenceContainer name="loki.script.component">
+            <block
+                name="loki.script.component.category.addtocart"
+                template="LokiTheme_LumaComponents::script/component/category/add-to-cart.phtml"/>
+            <block
+                name="loki.script.component.category.layered-navigation"
+                template="LokiTheme_LumaComponents::script/component/category/layered-navigation.phtml"/>
+            <block
+                name="loki.script.component.category.add-to-wishlist"
+                template="LokiTheme_LumaComponents::script/component/category/add-to-wishlist.phtml"/>
+            <block
+                name="loki.script.component.category.add-to-compare"
+                template="LokiTheme_LumaComponents::script/component/category/add-to-compare.phtml"/>
         </referenceContainer>
     </body>
 </page>
