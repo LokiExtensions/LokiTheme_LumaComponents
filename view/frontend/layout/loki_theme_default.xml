@@ -9,7 +9,11 @@
             <block name="loki.script.function.data-post" template="LokiTheme_LumaComponents::script/function/data-post.phtml"/>
         </referenceContainer>
 
-        <referenceContainer name="loki.components">
+        <referenceContainer name="loki.script.component-type">
+            <block name="loki.script.component.minicart-content" template="LokiTheme_LumaComponents::script/component-type/minicart-component-type.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="loki.script.component">
             <block name="loki.script.component.dropdown" template="LokiTheme_LumaComponents::script/component/dropdown.phtml"/>
             <block name="loki.script.component.main-menu" template="LokiTheme_LumaComponents::script/component/main-menu.phtml"/>
             <block name="loki.script.component.mobile-menu" template="LokiTheme_LumaComponents::script/component/mobile-menu.phtml"/>
