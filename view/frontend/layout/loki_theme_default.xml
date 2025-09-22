@@ -13,11 +13,11 @@
                    template="LokiTheme_LumaComponents::script/function/data-post.phtml"/>
         </referenceContainer>
 
-        <referenceContainer name="loki.script.component-type">
+        <referenceBlock name="loki.script.component-type">
             <block name="loki.script.component.minicart-content" template="LokiTheme_LumaComponents::script/component-type/minicart-component-type.phtml"/>
-        </referenceContainer>
+        </referenceBlock>
 
-        <referenceContainer name="loki.script.component">
+        <referenceBlock name="loki.script.component">
             <block
                 name="loki.script.component.dropdown"
                 template="LokiTheme_LumaComponents::script/component/dropdown.phtml"/>
@@ -43,7 +43,7 @@
                 ifconfig="web/cookie/cookie_restriction"
                 name="loki.script.component.cookie-notice"
                 template="LokiTheme_LumaComponents::script/component/cookie-notice.phtml"/>
-        </referenceContainer>
+        </referenceBlock>
 
         <referenceContainer name="minicart.addons">
             <block name="loki.minicart-content" template="LokiTheme_LumaComponents::component/minicart-content.phtml"/>
