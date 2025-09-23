@@ -14,7 +14,7 @@
         </referenceBlock>
 
         <referenceBlock name="loki.script.component-type">
-            <block name="loki.script.component.minicart-content" template="LokiTheme_LumaComponents::script/component-type/minicart-component-type.phtml"/>
+            <block name="loki.script.component-type.minicart-content" template="LokiTheme_LumaComponents::script/component-type/minicart-component-type.phtml"/>
         </referenceBlock>
 
         <referenceBlock name="loki.script.component">
