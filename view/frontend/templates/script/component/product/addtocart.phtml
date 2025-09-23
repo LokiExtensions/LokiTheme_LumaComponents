@@ -33,8 +33,7 @@ use Magento\Framework\View\Element\Template;
             fetch(form.action, {
                 method: 'POST',
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Content-Type': 'multipart/form-data; charset=UTF-8',
+                    'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: data
             }).finally(function () {
