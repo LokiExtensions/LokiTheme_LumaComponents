@@ -1,6 +1,7 @@
 {
     "sequence": [
         "Loki_Base",
+        "Magento_Backend",
         "Magento_Csp",
         "Magento_Store"
     ],
@@ -9,17 +10,17 @@
         "Loki_CssUtils",
         "Magento_Backend",
         "Magento_Csp",
-        "Magento_Store"
+        "Magento_Directory",
+        "Magento_Store",
+        "Magento_Theme"
     ],
     "components": [],
     "config": [
         {
-            "path": "LokiTheme_LumaComponents/general/themes",
+            "path": "LokiTheme_LumaComponents\/general\/themes",
             "label": "Generic settings > Applied Themes",
             "description": "By applying Loki Theme to a configured theme, its legacy JavaScript will be removed and replaced. Make sure to have tested this properly."
         }
     ],
-    "tests": [],
-    "phpcs_severity": "8",
-    "phpstan_level": "5"
+    "tests": []
 }
