@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.10] - 24 September 2025
+### Fixed
+- Fix wrong container name for minicart component type
+- Rename loki.script from container to block to allow caching
+- Add `.prevent` modifier to `@click` event handler
+- Rename minicart to minicart-content
+- Move scripts in right loki.script.component container
+
 ## [0.0.9] - 17 September 2025
 ### Fixed
 - Remove legacy messaging
@@ -17,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Add wishlist counter to top links
 - Apply LumaTopLinks to both top.links and header.links
-- Sef long lifetime on user_allowed_save_cookie cookie
+- Set long lifetime on `user_allowed_save_cookie` cookie
 - Apply right handle names
 - Rename namespaces
 - Update README
@@ -30,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cleanup
 - Fix mobile menu
 - Cleanup after merge
-- Add new Loki_Base as dependency and move over common logic
+- Add new `Loki_Base` as dependency and move over common logic
 
 ## [0.0.7] - 12 September 2025
 ### Fixed
