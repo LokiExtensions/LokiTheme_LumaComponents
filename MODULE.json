@@ -20,5 +20,6 @@
         }
     ],
     "tests": [],
-    "phpcs_severity": "8"
+    "phpcs_severity": "8",
+    "phpstan_level": "5"
 }
