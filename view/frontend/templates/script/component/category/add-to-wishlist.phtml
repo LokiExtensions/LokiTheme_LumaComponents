@@ -19,7 +19,8 @@ use Magento\Framework\View\Element\Template;
 
                 const customerSection = Alpine.store('LokiLocalStorage').get('customer');
                 if (!customerSection.fullname) {
-                    Alpine.store('LokiMessageStore').addNoticeMessage('<?= __('You need to login to use the wishlist') ?>');
+                    const message = '<?= $escaper->escapeHtml(__('You need to login to use the wishlist')) ?>';
+                    Alpine.store('LokiMessageStore').addNoticeMessage(message);
                     return;
                 }
 
