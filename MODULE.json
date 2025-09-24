@@ -6,6 +6,8 @@
     ],
     "modules": [
         "Loki_Base",
+        "Loki_CssUtils",
+        "Magento_Backend",
         "Magento_Csp",
         "Magento_Store"
     ],
