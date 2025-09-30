@@ -50,6 +50,11 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                 });
             },
             showGreeting() {
+                const welcomeElement = this.$el.querySelector('.greet.welcome');
+                if (welcomeElement) {
+                    welcomeElement.style.display = 'inline-block';
+                }
+
                 const element = this.$el.querySelector('.logged-in');
                 if (!element) {
                     return;
