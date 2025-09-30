@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.11] - 30 September 2025
+### Fixed
+- Replace redirect script on customer/account/logoutSuccess page
+- Show greeting properly when sectionData has a fullname
+- Add DOM ID to all blocks being converted to Alpine component
+
 ## [0.0.10] - 24 September 2025
 ### Fixed
 - Fix wrong container name for minicart component type
