@@ -1,0 +1,61 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+$redirectUrl = $block->getUrl();
+$timeout = (int)$block->getTimeout();
+if ($timeout < 1) {
+    $timeout = 2000;
+}
+?>
+<div x-data="LumaCustomerLogout">
+    <p x-html="getMessage"></p>
+</div>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LumaCustomerLogout', () => ({
+            message: '<?= $escaper->escapeHtml(
+                __(
+                    'You have signed out and will go to our homepage in %1 seconds.'
+                )
+            ) ?>',
+            redirectUrl: '<?= $block->getUrl() ?>',
+            timeout: <?= (int)$timeout ?>,
+            init() {
+                this.prefetch();
+
+                const interval = setInterval(() => {
+                    this.timeout = this.timeout - 1000;
+                }, 1000);
+
+                setTimeout(() => {
+                    clearInterval(interval);
+                    window.location.assign(this.redirectUrl);
+                }, this.timeout);
+            },
+            getMessage() {
+                const seconds = this.timeout / 1000;
+                return this.message.replace('%1', seconds);
+            },
+            prefetch() {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'prefetch';
+                preloadLink.as = 'document';
+                preloadLink.href = '/';
+                document.head.appendChild(preloadLink);
+            }
+        }));
+    });
+</script>
+
+<script type="speculationrules">
+    {
+        "prerender": [{ "source": "list", "urls": ["<?= $block->getUrl() ?>"] }]
+    }
+</script>
