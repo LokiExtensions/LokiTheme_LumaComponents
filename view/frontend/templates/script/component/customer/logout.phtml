@@ -27,7 +27,7 @@ if ($timeout < 1) {
                     'You have signed out and will go to our homepage in %1 seconds.'
                 )
             ) ?>',
-            redirectUrl: '<?= $block->getUrl() ?>',
+            redirectUrl: '<?= $escaper->escapeUrl($block->getUrl()) ?>',
             timeout: <?= (int)$timeout ?>,
             init() {
                 this.prefetch();
@@ -58,6 +58,6 @@ if ($timeout < 1) {
 
 <script type="speculationrules">
     {
-        "prerender": [{ "source": "list", "urls": ["<?= $block->getUrl() ?>"] }]
+        "prerender": [{ "source": "list", "urls": ["<?= $escaper->escapeUrl($block->getUrl()) ?>"] }]
     }
 </script>
