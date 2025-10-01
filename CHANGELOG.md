@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.13] - 01 October 2025
+### Fixed
+- Move HTML hints from LokiTheme_LumaComponents to Loki_Debugger
+- Fix currency switcher breaking store switcher
+
 ## [0.0.12] - 30 September 2025
 ### Fixed
 - Wipe out customer-section on logout success page
