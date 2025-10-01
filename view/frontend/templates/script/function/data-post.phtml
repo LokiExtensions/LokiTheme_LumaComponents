@@ -10,6 +10,9 @@ use Magento\Framework\View\Element\Template;
 <script>
     function LokiDataPost(element) {
         const data = JSON.parse(element.getAttribute('data-post'));
+        if (!data) {
+            return;
+        }
 
         const form = document.createElement('form');
         form.method = 'POST';

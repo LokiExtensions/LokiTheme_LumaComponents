@@ -8,7 +8,7 @@ use Magento\Framework\View\Element\Template;
 ?>
 <script>
     (() => {
-        [...document.querySelectorAll('.switcher-option a')].forEach(element => {
+        [...document.querySelectorAll('.switcher-dropdown a[data-post]')].forEach(element => {
             element.addEventListener('click', (event) => {
                 event.preventDefault();
                 LokiDataPost(event.target);
