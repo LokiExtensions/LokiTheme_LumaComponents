@@ -15,7 +15,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
         Alpine.data('LumaTopLinks', () => ({
             init() {
                 Alpine.effect(() => {
-                    const customerSection = Alpine.store('LokiLocalStorage').get('customer');
+                    const customerSection = Alpine.store('LocalStorage').get('customer');
 
                     if (customerSection && customerSection.fullname) {
                         this.showCustomerUrls();
@@ -60,7 +60,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                     return;
                 }
 
-                const customerSection = Alpine.store('LokiLocalStorage').get('customer');
+                const customerSection = Alpine.store('LocalStorage').get('customer');
                 element.innerHTML = '<?= /* @noEscape */ __('Welcome, %1') ?>'
                     .replace('%1', customerSection.fullname);
             },
@@ -76,7 +76,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                     return;
                 }
 
-                const wishlistSection = Alpine.store('LokiLocalStorage').get('wishlist');
+                const wishlistSection = Alpine.store('LocalStorage').get('wishlist');
                 if (!wishlistSection) {
                     return;
                 }

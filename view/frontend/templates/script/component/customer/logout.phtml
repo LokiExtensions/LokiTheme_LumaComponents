@@ -30,7 +30,7 @@ if ($timeout < 1) {
             redirectUrl: '<?= $escaper->escapeUrl($block->getUrl()) ?>',
             timeout: <?= (int)$timeout ?>,
             init() {
-                Alpine.store('LokiLocalStorage').remove('customer');
+                Alpine.store('LocalStorage').remove('customer');
 
                 this.prefetch();
 

@@ -34,7 +34,7 @@ use Magento\Framework\View\Element\Template;
                     },
                     body: data
                 }).finally(function () {
-                    Alpine.store('LokiLocalStorage').refresh('cart,messages', true);
+                    Alpine.store('LocalStorage').refresh('cart,messages', true);
                     button.disabled = false;
                 });
             });

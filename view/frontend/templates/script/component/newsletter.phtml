@@ -21,7 +21,7 @@ use Magento\Framework\View\Element\Template;
                     }
 
                     // @todo Validate email
-                    Alpine.store('LokiLocalStorage').remove('messages');
+                    Alpine.store('LocalStorage').remove('messages');
 
                     var formKeyInput = document.createElement('input');
                     formKeyInput.name = 'form_key';
