@@ -14,14 +14,14 @@ use Magento\Framework\View\Element\Template;
             return;
         }
 
-        const userAllowedSaveCookie = LokiCookies.isAllowedSaving();
+        const userAllowedSaveCookie = MageCookies.isAllowedSaving();
         if (!userAllowedSaveCookie) {
             cookieNoticeBlock.style.display = 'block';
         }
 
         document.getElementById('btn-cookie-allow').addEventListener('click', () => {
             const lifetime = 60 * 60 * 24 * 365;
-            LokiCookies.set('user_allowed_save_cookie', JSON.stringify({1:1}), lifetime);
+            MageCookies.set('user_allowed_save_cookie', JSON.stringify({1:1}), lifetime);
             cookieNoticeBlock.style.display = 'none';
         });
     })();
