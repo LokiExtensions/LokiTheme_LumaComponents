@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.14] - 12 November 2025
+### Fixed
+- Remove minicart to move to MageOS_AlpineMinicart
+- Update composer keywords
+- Update composer keywords
+
 ## [0.0.13] - 01 October 2025
 ### Fixed
 - Move HTML hints from LokiTheme_LumaComponents to Loki_Debugger
