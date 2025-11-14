@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.16] - 14 November 2025
+### Fixed
+- Rename LokiCookies to MageCookies
+
 ## [0.0.15] - 12 November 2025
 ### Fixed
 - Rename LokiLocalStorage store to LocalStorage
