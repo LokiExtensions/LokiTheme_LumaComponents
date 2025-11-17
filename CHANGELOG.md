@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.17] - 17 November 2025
+### Fixed
+- Remove old LumaMiniCart component
+
 ## [0.0.16] - 14 November 2025
 ### Fixed
 - Rename LokiCookies to MageCookies
