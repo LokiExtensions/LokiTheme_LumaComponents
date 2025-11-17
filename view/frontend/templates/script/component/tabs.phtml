@@ -8,7 +8,7 @@ use Magento\Framework\View\Element\Template;
 ?>
 <script>
     (function() {
-        const tabAnchors = [...this.$el.querySelectorAll('[data-toggle="trigger"]')];
+        const tabAnchors = [...document.querySelectorAll('[data-toggle="trigger"]')];
         tabAnchors.forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
