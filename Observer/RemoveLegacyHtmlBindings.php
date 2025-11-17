@@ -2,6 +2,7 @@
 
 namespace LokiTheme\LumaComponents\Observer;
 
+use LokiTheme\LumaComponents\Config\RequestConfig;
 use LokiTheme\LumaComponents\Config\ThemeConfig;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -10,13 +11,14 @@ class RemoveLegacyHtmlBindings implements ObserverInterface
 {
     public function __construct(
         private readonly ThemeConfig $themeConfig,
+        private readonly RequestConfig $requestConfig,
         private array $patterns = [],
     ) {
     }
 
     public function execute(Observer $observer): void
     {
-        if (false === $this->themeConfig->modifyCurrentTheme()) {
+        if (false === $this->themeConfig->modifyCurrentTheme() && false === $this->requestConfig->allowRoute()) {
             return;
         }
 
