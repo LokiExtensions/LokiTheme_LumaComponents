@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.19] - 21 November 2025
+### Fixed
+- Force Loki Theme Kit upon Luma as soon as LokiTheme_LumaComponents as enabled
+
 ## [0.0.18] - 17 November 2025
 ### Fixed
 - Fix JS eror because $el in plain JS
