@@ -50,7 +50,8 @@ if (false === is_numeric($showDelay)) {
                 const categoryLink = document.createElement('a');
                 categoryLink.href = listItemAnchor.getAttribute('href');
 
-                categoryLink.innerHTML = '<?= /* @noEscape */ __('All %1') ?>'.replace('%1', listItemAnchorSpan.innerHTML);
+                const categoryLinkText = '<?= /* @noEscape */ __('All %1') ?>';
+                categoryLink.innerHTML = categoryLinkText.replace('%1', listItemAnchorSpan.innerHTML);
 
                 const categoryLinkListItem = document.createElement('li');
                 categoryLinkListItem.appendChild(categoryLink);

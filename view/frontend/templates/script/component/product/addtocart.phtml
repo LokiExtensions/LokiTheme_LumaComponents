@@ -27,7 +27,9 @@ use Magento\Framework\View\Element\Template;
             data.append('item', form.querySelector('input[name="item"]').value);
             data.append('qty', form.querySelector('input[name="qty"]').value);
             data.append('related_product', form.querySelector('input[name="related_product"]').value);
-            data.append('selected_configurable_option', form.querySelector('input[name="selected_configurable_option"]').value);
+
+            const optionElement = form.querySelector('input[name="selected_configurable_option"]');
+            data.append('selected_configurable_option', optionElement.value);
             data.append('form_key', form.querySelector('input[name="form_key"]').value);
 
             fetch(form.action, {
