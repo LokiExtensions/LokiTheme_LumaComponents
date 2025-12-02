@@ -18,7 +18,7 @@ class RemoveLegacyHtmlBindings implements ObserverInterface
 
     public function execute(Observer $observer): void
     {
-        if (false === $this->themeConfig->modifyCurrentTheme() && false === $this->requestConfig->allowRoute()) {
+        if (false === $this->themeConfig->modifyCurrentTheme() || false === $this->requestConfig->allowRoute()) {
             return;
         }
 
