@@ -15,5 +15,6 @@
         <referenceBlock name="requirejs-config" remove="true"/>
         <referenceBlock name="head.components" remove="true"/>
         <referenceBlock name="cookie-status-check" remove="true"/>
+        <referenceBlock name="theme.active.editor" remove="true"/>
     </body>
 </page>
