@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.21] - 06 January 2026
+### Fixed
+- Try create empty phpstan.neon file to fix GitHub Action
+- Update MODULE.json with PHPStan level 5
+- Remove theme.active.editor
+
 ## [0.0.20] - 02 December 2025
 ### Fixed
 - Make sure both theme and request are correct
