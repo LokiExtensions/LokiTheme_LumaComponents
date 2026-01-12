@@ -11,6 +11,12 @@
         "magento/module-csp": "^100.0",
         "magento/module-store": "^101.1"
     },
+    "suggest": {
+        "mage-os/module-alpine-loader": "Load Alpine.js in the Luma frontend",
+        "mage-os/module-alpine-local-storage": "Sync LocalStorage via an Alpine.js store",
+        "mage-os/module-alpine-messages": "Replace Luma messages with an Alpine.js component",
+        "mage-os/module-alpine-minicart": "Replace Luma minicart with an Alpine.js component"
+    },
     "license": [
         "OSL-3.0"
     ],
