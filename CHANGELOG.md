@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.22] - 12 January 2026
+### Fixed
+- Add all existing form fields to POST request more cleverly
+- Remove Content-Type from add-to-cart POST
+- Remove additional require blocks
+- Suggest the Mage-OS Alpine packages in composer.json
+- Add new GitHub Action workflows
+- Copy generic CI/CD files
+
 ## [0.0.21] - 06 January 2026
 ### Fixed
 - Try create empty phpstan.neon file to fix GitHub Action
