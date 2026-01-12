@@ -11,10 +11,12 @@
     </head>
 
     <body>
+        <referenceBlock name="html_calendar" remove="true"/>
         <referenceBlock name="require.js" remove="true"/>
         <referenceBlock name="requirejs-config" remove="true"/>
         <referenceBlock name="head.components" remove="true"/>
         <referenceBlock name="cookie-status-check" remove="true"/>
         <referenceBlock name="theme.active.editor" remove="true"/>
+        <referenceBlock name="google.maps.api" remove="true"/>
     </body>
 </page>
