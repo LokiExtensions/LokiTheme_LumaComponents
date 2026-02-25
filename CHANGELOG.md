@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.23] - 25 February 2026
+### Fixed
+- Make call to LocalStorage.get async
+
 ## [0.0.22] - 12 January 2026
 ### Fixed
 - Add all existing form fields to POST request more cleverly

@@ -33,6 +33,8 @@ jobs:
         run: |
           test -n "${{ secrets.GITLAB_TOKEN }}" || exit 0
           cd /tmp/magento
+          test -f $GITHUB_WORKSPACE/.github/workflows/composer-additional.sh && source $GITHUB_WORKSPACE/.github/workflows/composer-additional.sh
+          test -f $GITHUB_WORKSPACE/.github/workflows/composer-${MAGENTO_VERSION}.sh && source $GITHUB_WORKSPACE/.github/workflows/composer-${MAGENTO_VERSION}.sh
           composer config gitlab-domains gitlab.yireo.com
           composer config --auth gitlab-token.gitlab.yireo.com ${{ secrets.GITLAB_TOKEN }}
           composer config repositories.loki-checkout composer https://gitlab.yireo.com/api/v4/group/loki-checkout/-/packages/composer/packages.json
@@ -58,5 +60,6 @@ jobs:
           test -f /tmp/magento/phpstan.neon || echo 'parameters:' > /tmp/magento/phpstan.neon
           echo "Testing for PHPStan level $PHPSTAN_LEVEL"
           cd /tmp/magento
-          php -d memory_limit=4G vendor/bin/phpstan analyse --level $PHPSTAN_LEVEL ${GITHUB_WORKSPACE}
+          export MODULE_PATH=$(realpath vendor/${COMPOSER_NAME})
+          php -d memory_limit=4G vendor/bin/phpstan analyse --level $PHPSTAN_LEVEL $MODULE_PATH
 
