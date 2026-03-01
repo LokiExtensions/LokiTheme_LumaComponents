@@ -1,4 +1,5 @@
 {
+    "integration": true,
     "sequence": [
         "Loki_Base",
         "Magento_Backend",
