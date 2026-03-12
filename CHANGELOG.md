@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.24] - 12 March 2026
+### Fixed
+- Add integration flag to MODULE.json
+
 ## [0.0.23] - 25 February 2026
 ### Fixed
 - Make call to LocalStorage.get async
