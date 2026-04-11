@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Magento\Framework\View\Element\Template;
 
-/** @version 0.0.9 */
+/** @version 0.0.25 */
 /** @var Template $block */
 ?>
 <script>
@@ -14,12 +14,13 @@ use Magento\Framework\View\Element\Template;
         }
 
         elements.forEach((element) => {
-            element.addEventListener('click', (e) => {
+            element.addEventListener('click', async (e) => {
                 e.preventDefault();
 
-                const customerSection = Alpine.store('LokiLocalStorage').get('customer');
+                const customerSection = await Alpine.store('LocalStorage').get('customer');
                 if (!customerSection.fullname) {
-                    Alpine.store('LokiMessageStore').addNoticeMessage('<?= __('You need to login to use the wishlist') ?>');
+                    const message = '<?= $escaper->escapeHtml(__('You need to login to use the wishlist')) ?>';
+                    Alpine.store('LokiMessageStore').addNoticeMessage(message);
                     return;
                 }
 

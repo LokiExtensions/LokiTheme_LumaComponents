@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Magento\Framework\View\Element\Template;
 
-/** @version 0.0.9 */
+/** @version 0.0.25 */
 /** @var Template $block */
 ?>
 <script>
@@ -33,9 +33,18 @@ use Magento\Framework\View\Element\Template;
                         'X-Requested-With': 'XMLHttpRequest',
                     },
                     body: data
-                }).finally(function () {
-                    Alpine.store('LokiLocalStorage').refresh('cart,messages', true);
-                    button.disabled = false;
+                })
+                    .then(async (response) => {
+                        const data = await response.json();
+                        if (data.backUrl) {
+                            Alpine.store('LocalStorage').refresh('cart,messages', true);
+                            window.location = data.backUrl;
+                        }
+
+                    })
+                    .finally(() => {
+                        Alpine.store('LocalStorage').refresh('cart,messages', true);
+                        button.disabled = false;
                 });
             });
         });

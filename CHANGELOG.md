@@ -6,6 +6,86 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.25] - 31 March 2026
+### Fixed
+- Allow for category addtocart to redirect to product page
+
+## [0.0.24] - 12 March 2026
+### Fixed
+- Add integration flag to MODULE.json
+
+## [0.0.23] - 25 February 2026
+### Fixed
+- Make call to LocalStorage.get async
+
+## [0.0.22] - 12 January 2026
+### Fixed
+- Add all existing form fields to POST request more cleverly
+- Remove Content-Type from add-to-cart POST
+- Remove additional require blocks
+- Suggest the Mage-OS Alpine packages in composer.json
+- Add new GitHub Action workflows
+- Copy generic CI/CD files
+
+## [0.0.21] - 06 January 2026
+### Fixed
+- Try create empty phpstan.neon file to fix GitHub Action
+- Update MODULE.json with PHPStan level 5
+- Remove theme.active.editor
+
+## [0.0.20] - 02 December 2025
+### Fixed
+- Make sure both theme and request are correct
+
+## [0.0.19] - 21 November 2025
+### Fixed
+- Force Loki Theme Kit upon Luma as soon as LokiTheme_LumaComponents as enabled
+
+## [0.0.18] - 17 November 2025
+### Fixed
+- Fix JS eror because $el in plain JS
+
+## [0.0.17] - 17 November 2025
+### Fixed
+- Remove old LumaMiniCart component
+
+## [0.0.16] - 14 November 2025
+### Fixed
+- Rename LokiCookies to MageCookies
+
+## [0.0.15] - 12 November 2025
+### Fixed
+- Rename LokiLocalStorage store to LocalStorage
+
+## [0.0.14] - 12 November 2025
+### Fixed
+- Remove minicart to move to MageOS_AlpineMinicart
+- Update composer keywords
+- Update composer keywords
+
+## [0.0.13] - 01 October 2025
+### Fixed
+- Move HTML hints from LokiTheme_LumaComponents to Loki_Debugger
+- Fix currency switcher breaking store switcher
+
+## [0.0.12] - 30 September 2025
+### Fixed
+- Wipe out customer-section on logout success page
+
+## [0.0.11] - 30 September 2025
+### Fixed
+- Replace redirect script on customer/account/logoutSuccess page
+- Show greeting properly when sectionData has a fullname
+- Add DOM ID to all blocks being converted to Alpine component
+
+## [0.0.10] - 24 September 2025
+### Fixed
+- Fix wrong container name for minicart component type
+- Rename loki.script from container to block to allow caching
+- Add `.prevent` modifier to `@click` event handler
+- Rename minicart to minicart-content
+- Move scripts in right loki.script.component container
+
 ## [0.0.9] - 17 September 2025
 ### Fixed
 - Remove legacy messaging
@@ -17,7 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Add wishlist counter to top links
 - Apply LumaTopLinks to both top.links and header.links
-- Sef long lifetime on user_allowed_save_cookie cookie
+- Set long lifetime on `user_allowed_save_cookie` cookie
 - Apply right handle names
 - Rename namespaces
 - Update README
@@ -30,7 +110,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cleanup
 - Fix mobile menu
 - Cleanup after merge
-- Add new Loki_Base as dependency and move over common logic
+- Add new `Loki_Base` as dependency and move over common logic
 
 ## [0.0.7] - 12 September 2025
 ### Fixed

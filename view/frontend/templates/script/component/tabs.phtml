@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 use Magento\Framework\View\Element\Template;
 
-/** @version 0.0.9 */
+/** @version 0.0.25 */
 /** @var Template $block */
 ?>
 <script>
     (function() {
-        const tabAnchors = [...this.$el.querySelectorAll('[data-toggle="trigger"]')];
+        const tabAnchors = [...document.querySelectorAll('[data-toggle="trigger"]')];
         tabAnchors.forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();

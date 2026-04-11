@@ -51,9 +51,13 @@ class AddAlpineComponents implements ObserverInterface
     ): string {
         $additional = 'x-data="'.$componentName.'"';
 
+        $blockId = str_replace('.', '-', $block->getNameInLayout());
+        if (false === str_contains($html, ' id="' . $blockId . '"')) {
+            $additional .= ' id="' . $blockId . '"';
+        }
+
         if ($this->isDeveloperMode()) {
-            $blockName = str_replace('.', '-', $block->getNameInLayout());
-            $additional .= ' x-title="'.$blockName.'"';
+            $additional .= ' x-title="' . $blockId . '"';
         }
 
         return preg_replace('/^<([a-z]+)/', '<\1 '.$additional, $html);

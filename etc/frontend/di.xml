@@ -18,7 +18,7 @@
             <argument name="componentDefinitions" xsi:type="array">
                 <item name="form.subscribe" xsi:type="string">LumaNewsletter</item>
                 <item name="catalog.topnav" xsi:type="string">LumaMainMenu</item>
-                <item name="minicart" xsi:type="string">LumaMiniCart</item>
+                <!--<item name="minicart" xsi:type="string">LumaMiniCart</item>-->
                 <item name="top.links" xsi:type="string">LumaTopLinks</item>
                 <item name="header.links" xsi:type="string">LumaTopLinks</item>
             </argument>

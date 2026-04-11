@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/** @version 0.0.9 */
+/** @version 0.0.25 */
 
 use Magento\Framework\View\Element\Template;
 
@@ -23,21 +23,18 @@ use Magento\Framework\View\Element\Template;
             e.preventDefault();
 
             const data = new FormData();
-            data.append('product', form.querySelector('input[name="product"]').value);
-            data.append('item', form.querySelector('input[name="item"]').value);
-            data.append('qty', form.querySelector('input[name="qty"]').value);
-            data.append('related_product', form.querySelector('input[name="related_product"]').value);
-            data.append('selected_configurable_option', form.querySelector('input[name="selected_configurable_option"]').value);
-            data.append('form_key', form.querySelector('input[name="form_key"]').value);
+            form.querySelectorAll('input, select, textarea').forEach(field => {
+                data.append(field.name, field.value);
+            });
 
             fetch(form.action, {
                 method: 'POST',
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
                 },
                 body: data
             }).finally(function () {
-                Alpine.store('LokiLocalStorage').refresh('cart,messages', true);
+                Alpine.store('LocalStorage').refresh('cart,messages', true);
                 button.disabled = false;
             });
         });

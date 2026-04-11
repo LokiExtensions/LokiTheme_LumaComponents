@@ -11,7 +11,7 @@ class ThemePathOptions implements OptionSourceInterface
 {
     public function __construct(
         private readonly ThemeList $themeList,
-    ){
+    ) {
     }
 
     public function toOptionArray()

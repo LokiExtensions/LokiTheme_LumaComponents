@@ -1,14 +1,21 @@
 {
     "name": "loki-theme/magento2-luma-components",
-    "version": "0.0.9",
+    "version": "0.0.25",
     "description": "Module to allow for Loki Themes to work",
     "type": "magento2-module",
     "require": {
         "ext-pcre": "*",
+        "loki/magento2-base": "^1.0",
         "magento/framework": "^103.0",
+        "magento/module-backend": "^102.0",
         "magento/module-csp": "^100.0",
-        "magento/module-store": "^101.1",
-        "loki/magento2-base": "^1.0"
+        "magento/module-store": "^101.1"
+    },
+    "suggest": {
+        "mage-os/module-alpine-loader": "Load Alpine.js in the Luma frontend",
+        "mage-os/module-alpine-local-storage": "Sync LocalStorage via an Alpine.js store",
+        "mage-os/module-alpine-messages": "Replace Luma messages with an Alpine.js component",
+        "mage-os/module-alpine-minicart": "Replace Luma minicart with an Alpine.js component"
     },
     "license": [
         "OSL-3.0"
@@ -20,5 +27,9 @@
         "psr-4": {
             "LokiTheme\\LumaComponents\\": ""
         }
-    }
+    },
+    "keywords": [
+        "loki-theme",
+        "loki-experimental"
+    ]
 }

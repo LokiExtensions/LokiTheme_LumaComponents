@@ -20,9 +20,5 @@
             name="LokiTheme_LumaComponents::addJsComponents"
             instance="LokiTheme\LumaComponents\Observer\AddJsComponents"
         />
-        <observer
-            name="LokiTheme_LumaComponents::addBlockHints"
-            instance="LokiTheme\LumaComponents\Observer\AddBlockHints"
-        />
     </event>
 </config>
