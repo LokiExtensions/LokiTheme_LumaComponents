@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.26] - 22 April 2026
+### Fixed
+- Remove old .module.ini
+- Update addtocart.phtml
+
 ## [0.0.25] - 31 March 2026
 ### Fixed
 - Allow for category addtocart to redirect to product page
