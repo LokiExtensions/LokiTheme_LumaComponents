@@ -23,7 +23,7 @@
         }
     ],
     "tests": [],
-    "phpcs_severity": "8",
+    "phpcs_severity": "6",
     "phpstan_level": "5",
     "module_name": "LokiTheme_LumaComponents",
     "composer_name": "loki-theme/magento2-luma-components",
