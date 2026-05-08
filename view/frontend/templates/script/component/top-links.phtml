@@ -17,7 +17,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
                 Alpine.effect(async () => {
                     const customerSection = await Alpine.store('LocalStorage').get('customer');
 
-                    if (customerSection && customerSection.customer && customerSection.customer.fullname) {
+                    if (customerSection && customerSection.fullname) {
                         this.showCustomerUrls();
                         this.hideGuestUrls();
                         this.showGreeting();
@@ -62,7 +62,7 @@ $customerAccountLoginUrl = $block->getUrl('customer/account/login');
 
                 const customerSection = await Alpine.store('LocalStorage').get('customer');
                 element.innerHTML = '<?= /* @noEscape */ __('Welcome, %1') ?>'
-                    .replace('%1', customerSection.customer.fullname);
+                    .replace('%1', customerSection.fullname);
             },
             hideGreeting() {
                 const element = this.$el.querySelector('.greet.welcome');
