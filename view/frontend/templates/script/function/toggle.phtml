@@ -42,6 +42,12 @@ use Magento\Framework\View\Element\Template;
             event.preventDefault();
             searchMiniForm.classList.toggle('active');
             searchMiniForm.querySelector('label').classList.toggle('active');
-        })
+        });
+
+        const searchMiniInput =searchMiniForm.querySelector('input');
+        searchMiniInput.addEventListener('change', (event) => {
+            event.preventDefault();
+            searchMiniForm.submit();
+        });
     }
 </script>
