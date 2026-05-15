@@ -35,4 +35,13 @@ use Magento\Framework\View\Element\Template;
             element.style.display = element.style.display === 'block' ? 'none' : 'block';
         }
     };
+
+    const searchMiniForm = document.getElementById('search_mini_form');
+    if (searchMiniForm) {
+        searchMiniForm.addEventListener('click', (event) => {
+            event.preventDefault();
+            searchMiniForm.classList.toggle('active');
+            searchMiniForm.querySelector('label').classList.toggle('active');
+        })
+    }
 </script>
