@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.29] - 16 July 2026
+### Fixed
+- Rename store properly
+
 ## [0.0.28] - 15 May 2026
 ### Fixed
 - Add basic form submission with mobile search
