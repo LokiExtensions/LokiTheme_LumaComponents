@@ -28,7 +28,6 @@
     "module_name": "LokiTheme_LumaComponents",
     "composer_name": "loki-theme/magento2-luma-components",
     "php_versions": [
-        "8.1",
         "8.2",
         "8.3",
         "8.4",
