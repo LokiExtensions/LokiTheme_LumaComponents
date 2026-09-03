@@ -1,4 +1,4 @@
-# `LokiTheme_LumaComponents` module
+# LokiTheme_LumaComponents
 
 <!-- badges.specs.start -->
 ![Magento version](https://img.shields.io/badge/Magento-2.4.6%20%7C%202.4.9-orange)
