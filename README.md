@@ -54,10 +54,5 @@ This module removes legacy Luma JavaScript (RequireJS, Knockout.js, jQuery, jQue
 ![Integration Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/integration-tests.yml?label=integration-tests)
 ![Playwright](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/playwright.yml?label=playwright)
 ![DI Compilation](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/compile.yml?label=compile)
-
-![Static Tests](https://img.shields.io/gitlab/pipeline-status/LokiExtensions/LokiTheme_LumaComponents?branch=master&job=static-tests&label=static-tests)
-![Unit Tests](https://img.shields.io/gitlab/pipeline-status/LokiExtensions/LokiTheme_LumaComponents?branch=master&job=unit-tests&label=unit-tests)
-![Integration Tests](https://img.shields.io/gitlab/pipeline-status/LokiExtensions/LokiTheme_LumaComponents?branch=master&job=integration-tests&label=integration-tests)
-![Playwright](https://img.shields.io/gitlab/pipeline-status/LokiExtensions/LokiTheme_LumaComponents?branch=master&job=playwright&label=playwright)
-![DI Compilation](https://img.shields.io/gitlab/pipeline-status/LokiExtensions/LokiTheme_LumaComponents?branch=master&job=compile&label=compile)
 <!-- badges.test.end -->
+
