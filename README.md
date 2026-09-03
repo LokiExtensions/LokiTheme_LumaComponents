@@ -1,5 +1,23 @@
 # `LokiTheme_LumaComponents` module
-**Module for Magento 2 to remove legacy Luma JavaScript and adds JS components or Alpine.js components where needed**
+
+> Replace Magento Luma's legacy JavaScript stack with lightweight, CSP-friendly JavaScript and Alpine.js components.
+    
+<!-- Start Badges -->
+![Static Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/static-tests.yml)
+![Unit Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/unit-tests.yml)
+![Integration Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/integration-tests.yml)
+![Playwright](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/playwright.yml)
+![DI Compilation](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/compile.yml)
+![Packagist](https://img.shields.io/packagist/v/loki-theme/magento2-luma-components)
+![Magento version](https://img.shields.io/badge/Magento-2.4.7%20%7C%202.4.9-orange)
+![PHP version](https://img.shields.io/badge/PHP-8.2%E2%80%938.5-777BB4)
+![License](https://img.shields.io/badge/License-OSL--3.0-blue)
+<!-- End Badges -->
+
+## Links
+- [Loki Theme Kit](https://loki-extensions.com/theme-kit)
+- [Documentation](https://docs.loki-extensions.com/checkout/dev/modules/LokiTheme_LumaComponents)
+- [Issues](https://github.com/LokiExtensions/LokiTheme_LumaComponents/issues)
 
 ## Installation
 ```bash
@@ -14,21 +32,22 @@ This module removes legacy Luma JavaScript (RequireJS, Knockout.js, jQuery, jQue
 - Simple JavaScript functions;
 - Alpine.js components (with or without custom template);
 
-Currently, the following components are built-in:
+## Included components
 
-- Messages
-- Cookie notice
-- Top navigation
-- Mobile navigation
-- Top links (customer welcome)
-- Minicart
-- Newsletter subscribe
-- Add-to-cart (product page)
-- Add-to-cart (category page)
-- Add-to-wishlist (category page)
-- Add-to-compare (category page)
-- Tabs (product page)
-- Currency switcher
+| Component | Replacement |
+|-----------|-------------|
+| Messages | ✅ Vanilla JS |
+| Cookie Notice | ✅ Alpine.js |
+| Desktop Navigation | ✅ Alpine.js |
+| Mobile Navigation | ✅ Alpine.js |
+| Customer Top Links | ✅ Alpine.js |
+| Mini Cart | ✅ Alpine.js |
+| Newsletter Subscribe | ✅ Vanilla JS |
+| Add to Cart (PDP) | ✅ Vanilla JS |
+| Add to Cart (PLP) | ✅ Vanilla JS |
+| Wishlist / Compare | ✅ Vanilla JS |
+| Product Tabs | ✅ Alpine.js |
+| Currency Switcher | ✅ Alpine.js |
 
-Make sure to carefully read the docs at [https://loki-extensions.com/docs/theme](https://loki-extensions.com/docs/theme)
+> The goal is to replace legacy JavaScript with the smallest possible number of template overrides.
 
