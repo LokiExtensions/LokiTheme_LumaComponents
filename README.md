@@ -3,11 +3,12 @@
 > Replace Magento Luma's legacy JavaScript stack with lightweight, CSP-friendly JavaScript and Alpine.js components.
     
 <!-- Start Badges -->
-![Static Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/static-tests.yml)
-![Unit Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/unit-tests.yml)
-![Integration Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/integration-tests.yml)
-![Playwright](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/playwright.yml)
-![DI Compilation](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/compile.yml)
+![Static Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/static-tests.yml?label=static-tests)
+![Unit Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/unit-tests.yml?label=unit-tests)
+![Integration Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/integration-tests.yml?label=integration-tests)
+![Playwright](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/playwright.yml?label=playwright)
+![DI Compilation](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/compile.yml?label=compile)
+
 ![Packagist](https://img.shields.io/packagist/v/loki-theme/magento2-luma-components)
 ![Magento version](https://img.shields.io/badge/Magento-2.4.7%20%7C%202.4.9-orange)
 ![PHP version](https://img.shields.io/badge/PHP-8.2%E2%80%938.5-777BB4)
