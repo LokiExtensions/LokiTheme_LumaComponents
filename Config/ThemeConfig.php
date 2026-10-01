@@ -16,7 +16,7 @@ class ThemeConfig
 
     public function getThemes(): array
     {
-        $themeNames = trim($this->scopeConfig->getValue('LokiTheme_LumaComponents/general/themes'));
+        $themeNames = trim($this->scopeConfig->getValue('LokiTheme_LumaComponents/general/themes'), " \f\n\r\t\v\x00");
         if (empty($themeNames)) {
             return [];
         }

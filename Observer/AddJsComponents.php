@@ -23,7 +23,7 @@ class AddJsComponents implements ObserverInterface
         $transport = $observer->getEvent()->getTransport();
         $block = $observer->getEvent()->getBlock();
         $html = (string)$transport->getHtml();
-        $html = trim($html);
+        $html = trim($html, " \f\n\r\t\v\x00");
         if (empty($html)) {
             return;
         }
