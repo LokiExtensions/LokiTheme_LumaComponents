@@ -1,10 +1,14 @@
 # LokiTheme_LumaComponents
 
 <!-- badges.specs.start -->
+<div class="github-specs-badges">
+
 ![Magento version](https://img.shields.io/badge/Magento-2.4.6%20%7C%202.4.9-orange)
 ![PHP version](https://img.shields.io/badge/PHP-8.2%E2%80%938.5-777BB4)
 ![License](https://img.shields.io/badge/License-OSL--3.0-blue)
 ![Latest Version](https://img.shields.io/packagist/v/loki-theme/magento2-luma-components)
+
+</div>
 <!-- badges.specs.end -->
 
 > Replace Magento Luma's legacy JavaScript stack with lightweight, CSP-friendly JavaScript and Alpine.js components.
@@ -49,9 +53,13 @@ This module removes legacy Luma JavaScript (RequireJS, Knockout.js, jQuery, jQue
 ## Current status
 
 <!-- badges.test.start -->
+<div class="github-pipeline-badges">
+
 ![Static Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/static-tests.yml?label=static-tests)
 ![Unit Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/unit-tests.yml?label=unit-tests)
 ![Integration Tests](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/integration-tests.yml?label=integration-tests)
 ![Playwright](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/playwright.yml?label=playwright)
 ![DI Compilation](https://img.shields.io/github/actions/workflow/status/LokiExtensions/LokiTheme_LumaComponents/compile.yml?label=compile)
+
+</div>
 <!-- badges.test.end -->
