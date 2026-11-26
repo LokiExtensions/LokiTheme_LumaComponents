@@ -18,9 +18,7 @@
         "mage-os/module-alpine-messages": "Replace Luma messages with an Alpine.js component",
         "mage-os/module-alpine-minicart": "Replace Luma minicart with an Alpine.js component"
     },
-    "license": [
-        "OSL-3.0"
-    ],
+    "license": "OSL-3.0",
     "autoload": {
         "files": [
             "registration.php"
