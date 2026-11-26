@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.30] - 26 November 2026
+### Removed
+- Drop support for PHP 8.1
+
+### Added
+- Add support for PHP 8.5
+
+### Fixed
+- Prevent `trim()` deprecation warnings under PHP 8.6
+
 ## [0.0.29] - 09 August 2026
 ### Security
 - Rewrite `x-html` to `x-text` because of CSP
